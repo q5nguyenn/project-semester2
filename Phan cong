@@ -1,0 +1,20 @@
+--Hiếu
+    1.Trang chủ  -->index
+	2.	Trang tìm kiếm -->search
+	3.	Trang khoa, bộ môn -->faculty, department
+--Tuấn Anh
+	5.	Trang chi tiết khoá --> học coursedesc.html
+	6.	Trang about-us, điều lệ --> about-us, term
+--Thành
+	8.	Trang đăng kí * -->signup
+	9.	Trang đăng nhập * -->signin
+	10.	Trang hồ sơ * -->profile
+	11.	Trang giỏ hàng * -->cart 
+--Phước
+	13.	Trang profile --> dashboard
+	14.	Trang kích hoạt mã * -->active-code
+	15.	Trang thông báo * -->notification
+--Quý
+	13.Thông tin giảng viên -->tearcher
+	14.Header & Footer 
+	15.Thanh toán -->checkout
