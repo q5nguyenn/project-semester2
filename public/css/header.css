@@ -1,0 +1,29 @@
+.bi-search {
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.department-links {
+  top: 45px;
+}
+
+.department-links > div {
+  width: max-content;
+}
+
+.department-links div:hover {
+  background-color: #f8f9fa;
+  transition: 0.3s;
+}
+
+#menu {
+  top: 45px;
+  right: 10px;
+  width: 200px;
+}
+
+#menu a:hover {
+  background-color: #f8f9fa;
+  transition: 0.3s;
+}
