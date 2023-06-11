@@ -9,8 +9,8 @@
 |  | Tìm kiếm| search.html|  |  | ✅ | |
 |  | Khoa| faculty.html|  |  | ✅ | |
 |  | Bộ môn| department.html|  |  | ✅ | |
-| Tuần Anh| Chi tiết khoá học| coursedesc.html|  |  | ✅ | |
-| | About us| about-us.html|  | ✅ |  | |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  | ✅ | |
+| | About us| about-us.html|  |  |  ✅| |
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
 | | Đăng kí| signup.html|  |  | ✅ | |
