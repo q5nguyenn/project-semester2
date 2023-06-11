@@ -20,7 +20,7 @@
 | | Kích hoạt mã| active-code.html|  |  | ✅ | |
 | | Thông báo| notification.html|  |  | ✅ | |
 |Quý|Giảng viên|teacher.html|  |  | ✅ | |
-| |Header|teacher.html|  |  | ✅ | |
-| |Footer|teacher.html|  |  | ✅ | |
+| |Header|header.html|  |  | ✅ | |
+| |Footer|footer.html|  |  | ✅ | |
 ||Checkout|checkout/step[1, 2, 3].hmtl|  |  | ✅ | |
 ---
