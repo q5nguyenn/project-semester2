@@ -10,7 +10,7 @@
 |  | Khoa| faculty.html|  |  | ✅ | |
 |  | Bộ môn| department.html|  |  | ✅ | |
 | Tuần Anh| Chi tiết khoá học| coursedesc.html|  |  | ✅ | |
-| | About us| about-us.html|  |  | ✅ | |
+| | About us| about-us.html|  | ✅ |  | |
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
 | | Đăng kí| signup.html|  |  | ✅ | |
