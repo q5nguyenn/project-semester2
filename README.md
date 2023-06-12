@@ -30,7 +30,7 @@
 | -   | -                  | -         | -          | -|-| -|
 | Hiếu| Trang chủ| index.php| ✅ |  |  | |
 |  | Tìm kiếm| search.php| ✅ |  |  | |
-|  | Khoa| faculty.php|  | ✅ |  | |
+|  | Khoa| faculty.php| ✅ |  |  | |
 |  | Bộ môn| department.php| ✅ |  |  | |
 | Tuấn Anh| Chi tiết khoá học| coursedesc.php| ✅ |  |  | |
 | | About us| about-us.php| ✅ |  |  | |
