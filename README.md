@@ -14,7 +14,7 @@
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
 | | Đăng kí| signup.html|  |  | ✅ | |
-| | Hồ sơ| profile.html|  |  | ✅ | |
+| | Hồ sơ| profile.html|  |  ✅|  | |
 | | Giỏ hàng| cart.html|  |  | ✅ | |
 | Phước| Profile| dashboard.html|  |  | ✅ | |
 | | Kích hoạt mã| active-code.html|  |  | ✅ | |
