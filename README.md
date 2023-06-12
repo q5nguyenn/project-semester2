@@ -24,3 +24,26 @@
 | |Footer|footer.html|  |  | ✅ | |
 ||Checkout|checkout/step[1, 2, 3].hmtl|  |  | ✅ | |
 ---
+1️⃣Giai đoạn 2 - Back end
+---
+| Tên | Nội dung công việc | File name | Chưa làm |Đang làm | Đã xong |Ghi chú|
+| -   | -                  | -         | -          | -|-| -|
+| Hiếu| Trang chủ| index.php| ✅ |  |  | |
+|  | Tìm kiếm| search.php| ✅ |  |  | |
+|  | Khoa| faculty.php|  | ✅ |  | |
+|  | Bộ môn| department.php| ✅ |  |  | |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.php| ✅ |  |  | |
+| | About us| about-us.php| ✅ |  |  | |
+| | Điều khoản| terms.php| ✅ |  |  | |
+| Thành| Đăng nhập| signin.php| ✅ |  |  | |
+| | Đăng kí| signup.php| ✅ |  |  | |
+| | Hồ sơ| profile.php| ✅ |  |  | |
+| | Giỏ hàng| cart.php| ✅ |  |  | |
+| Phước| Profile| dashboard.php| ✅ |  |  | |
+| | Kích hoạt mã| active-code.php| ✅ |  |  | |
+| | Thông báo| notification.php| ✅ |  |  | |
+|Quý|Giảng viên|teacher.php| ✅ |  |  | |
+| |Header|header.php| ✅ |  |  | |
+| |Footer|footer.php| ✅ |  |  | |
+||Checkout|checkout/step[1, 2, 3].php| ✅ |  |  | |
+---
