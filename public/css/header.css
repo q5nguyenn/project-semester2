@@ -17,13 +17,13 @@
   transition: 0.3s;
 }
 
-#menu {
+.menu-links {
   top: 45px;
   right: 10px;
   width: 200px;
 }
 
-#menu a:hover {
+.menu-links a:hover {
   background-color: #f8f9fa;
   transition: 0.3s;
 }
