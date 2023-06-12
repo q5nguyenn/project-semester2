@@ -1,0 +1,7 @@
+.thumbnail {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/bg-ab.jpg");
+  width: 100%;
+}

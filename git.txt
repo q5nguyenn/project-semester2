@@ -1,0 +1,6 @@
+git add .
+git commit -m "mo ta ngan noi dung lam"
+git push origin master
+
+Update code cả nhóm
+git pull
