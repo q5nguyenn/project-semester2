@@ -1,0 +1,18 @@
+
+section .u-hot-cate {
+    padding: 9px 12px;
+}
+
+section .u-hot-cate ul {
+    line-height: 30px;
+}
+
+section .u-hot-cate ul li{
+    margin: 0 15px;
+    color: #777;
+}
+
+section .u-hot-cate ul li a{
+    color: #777;
+    font-size: 14px;
+}
