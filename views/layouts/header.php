@@ -1,6 +1,5 @@
 <?php
-session_start();
-include '../database/database.php';
+require_once(($base_url ?? '') . '../database/database.php');
 $user = $_SESSION['user'];
 
 $faculties = excuteResult("SELECT * FROM `faculties`");
@@ -12,7 +11,7 @@ if (checkLogin()) {
 }
 ?>
 <header>
-	<div class="container-fluid shadow-sm fixed-top bg-white borer border-5">
+	<div class="container-fluid shadow-sm fixed-top bg-white borer border-5" id="nav-bar">
 		<div class="container d-flex py-1 align-items-center">
 			<div>
 				<a class="btn fw-bold fs-5" href="index.html">STAR CLASSES</a>
@@ -44,7 +43,7 @@ if (checkLogin()) {
 			<div class="flex-fill">
 				<form class="d-flex rounded-circle position-relative" action="../../database/searchController.php">
 					<input class="form-control me-2" type="text" placeholder="Search" name="keyword">
-					<i class="bi bi-search position-absolute btn"></i>
+					<i class="bi bi-search position-absolute top-50 end-0 translate-middle btn p-0 pe-2"></i>
 				</form>
 			</div>
 			<div class="position-relative">

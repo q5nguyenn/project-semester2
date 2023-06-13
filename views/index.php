@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('../database/database.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,16 +19,16 @@
 <body>
 	<!-- Header Start -->
 	<?php
-	include 'layouts/header.php';
+	require_once 'layouts/header.php';
 	?>
 	<!-- Header End -->
-	<main class="min-vh-100 mt-5">
+	<main class="min-vh-100">
 		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad numquam architecto repudiandae vero minima perspiciatis
 		eius iste nulla inventore. Fugiat ex ducimus sunt minima, culpa nihil eos tenetur nulla similique.
 	</main>
 	<!-- Footer Start -->
 	<?php
-	include 'layouts/footer.php'
+	require_once 'layouts/footer.php'
 	?>
 	<!-- Footer End -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

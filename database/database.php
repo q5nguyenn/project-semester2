@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require_once 'config.php';
 function openConnection()
 {
 	$conn = new mysqli(SERVERNAME, USER_NAME, PASSWORD, DBNAME);
@@ -45,9 +45,8 @@ function excuteResult($sql, $first = false)
 
 function checkLogin()
 {
-	$login = false;
 	if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
-		$login = true;
+		return  true;
 	}
-	return $login;
+	return false;
 }

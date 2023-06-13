@@ -22,4 +22,6 @@ $(document).ready(function () {
 		$('.department-item').hide(300);
 		$(`[data-parent=${id}]`).show(300);
 	});
+
+	$('header').css('height', $('#nav-bar').height());
 });

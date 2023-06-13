@@ -1,6 +1,6 @@
 <?php
-include '../database.php';
-include '../utility.php';
+require_once '../database.php';
+require_once '../utility.php';
 
 $email = getPOST('email');
 $password = getPOST('password');
@@ -23,8 +23,12 @@ if (!$user) {
 			setcookie('email', $email, time() + 120, '/');
 			setcookie('password', $password, time() + 120, '/');
 			setcookie('remember', 1, time() + 120, '/');
+		} else {
+			setcookie('id', $user['id'], time(), '/');
+			setcookie('email', $email, time(), '/');
+			setcookie('password', $password, time(), '/');
+			setcookie('remember', 1, time(), '/');
 		}
-
 		header("Location: ../../views/index.php");
 	} else {
 		$_SESSION['error'] = '*Mật khẩu không hợp lệ.';
