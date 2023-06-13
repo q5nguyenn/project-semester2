@@ -33,10 +33,21 @@ function excuteResult($sql, $first = false)
 		while ($row = $result->fetch_assoc()) {
 			$data[] = $row;
 		}
+	} else {
+		return false;
 	}
 	if ($first == true) {
 		$data = reset($data);
 	}
 	closeConnection($conn);
 	return $data;
+}
+
+function checkLogin()
+{
+	$login = false;
+	if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
+		$login = true;
+	}
+	return $login;
 }
