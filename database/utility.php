@@ -20,6 +20,7 @@ function getGET($field)
 	return $resul;
 }
 
+//get Percent 
 function percent($a, $b)
 {
 	return round(($b - $a) / $b, 2) * 100;

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require_once 'config.php';
 function openConnection()
 {
 	$conn = new mysqli(SERVERNAME, USER_NAME, PASSWORD, DBNAME);
@@ -33,10 +33,20 @@ function excuteResult($sql, $first = false)
 		while ($row = $result->fetch_assoc()) {
 			$data[] = $row;
 		}
+	} else {
+		return false;
 	}
 	if ($first == true) {
 		$data = reset($data);
 	}
 	closeConnection($conn);
 	return $data;
+}
+
+function checkLogin()
+{
+	if (isset($_COOKIE['id']) || isset($_SESSION['user'])) {
+		return  true;
+	}
+	return false;
 }

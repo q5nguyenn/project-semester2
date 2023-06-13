@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DashBoard-Group</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+	<link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body>
+	<!-- <header></header> -->
+	<header></header>
+	<main>
+		<!-- Background image -->
+		<div class="u-dashboard-top" style="background-image: url(/public/images/bg-db.jpg);">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p>
+							Học viên: Phuochy197
+						</p>
+					</div>
+					<div class="collapse navbar-collapse">
+						<ul class="nav nav-tabs">
+							<li class="nav-item">
+								<a class="nav-link course" href="/views/DB/dashboard.html">
+                                    <i class="bi bi-journal-medical"> Khoá học </i>
+                                </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link group" href="/views/DB/group.html">
+                                    <i class="bi bi-people"> Hội viên</i>
+                                </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link wishlist" href="/views/DB/wishlist.html">
+                                    <i class="bi bi-star"> Yêu Thích</i>
+                                </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link discover" href="/views/DB/discover.html">
+                                    <i class="bi bi-search"> Khám phá</i>
+                                </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link schedule" href="/views/DB/schedule.html">
+                                    <i class="bi bi-book-half"> Quản lý học tập</i>
+                                </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link vouchers-wallet" href="/views/DB/vouchers-wallet.html">
+                                    <i class="bi bi-tags"> Ví vouchers</i>
+                                </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link inbox" href="/views/DB/inbox.html">
+                                    <i class="bi bi-envelope"> Hộp thư</i>
+                                </a>
+							</li>
+						</ul>
+					</div>							
+				</div>
+            </div>
+		</div>
+        <div class="conten-main-user">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="group-form">Học tập vui hơn,tiết kiệm hơn với gói thẻ hội viên của chúng tôi</div>
+                        <div class="group-form">Thanh toán 1 lần học không giới hạn hơn
+                            <b>500</b>
+                            khoá học từ cơ bản đến nâng cao
+                        </div>
+
+                        <div class="learning-path">
+                            <h3 class="learning-path_name">chọn gói phù hợp với bạn</h3>
+                            <div class="learning-path_price">
+                                <form action="#">
+                                    <input type="hidden" name="group_id" value="2">
+                                    <div class="choose-price">
+                                        <input type="radio" class="radio-btn" name="quantity" id="Price_3moths" value="3">
+                                        <label for="Price_3moths" class="price detail">
+                                            Gói 3 tháng,chỉ
+                                            <b>319K</b>
+                                            <p></p>
+                                        </label>
+                                    </div>
+                                    <div class="choose-price">
+                                        <input type="radio" class="radio-btn" name="quantity" id="Price_6moths" value="6">
+                                        <label for="Price_6moths" class="price detail">
+                                            Gói 6 tháng,chỉ
+                                            <b>219K</b>
+                                            <p></p>
+                                        </label>
+                                    </div>
+                                    <div class="choose-price">
+                                        <input type="radio" class="radio-btn" name="quantity" id="Price_12moths" value="12" checked>
+                                        <label for="Price_12moths" class="price detail">
+                                            Gói 12 tháng ,chỉ
+                                            <b>119K</b>
+                                            <p></p>
+                                        </label>
+                                    </div>
+                                    <div style="margin-top: 12px;">
+                                        <button class="btn btn-primary">Tham gia ngay</button>
+                                        <a href="#" class="btn btn-default">DANH SÁCH KHOÁ HỌC</a>
+                                    </div>
+                                </form>
+                            </div>                           
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <img src="/public/images/amember.png" alt class="learning-path_img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </main>
+	<!-- <footer></footer> -->
+	<footer></footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>

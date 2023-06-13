@@ -14,7 +14,7 @@
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
 | | Đăng kí| signup.html|  |  | ✅ | |
-| | Hồ sơ| profile.html|  |  ✅|  | |
+| | Hồ sơ| profile.html|  |  | ✅ | |
 | | Giỏ hàng| cart.html|  |  | ✅ | |
 | Phước| Profile| dashboard.html|  |  | ✅ | |
 | | Kích hoạt mã| active-code.html|  |  | ✅ | |
@@ -24,7 +24,7 @@
 | |Footer|footer.html|  |  | ✅ | |
 ||Checkout|checkout/step[1, 2, 3].hmtl|  |  | ✅ | |
 ---
-1️⃣Giai đoạn 2 - Back end
+2️⃣Giai đoạn 2 - Back end
 ---
 | Tên | Nội dung công việc | File name | Chưa làm |Đang làm | Đã xong |Ghi chú|
 | -   | -                  | -         | -          | -|-| -|
@@ -42,8 +42,8 @@
 | Phước| Profile| dashboard.php| ✅ |  |  | |
 | | Kích hoạt mã| active-code.php| ✅ |  |  | |
 | | Thông báo| notification.php| ✅ |  |  | |
-|Quý|Giảng viên|teacher.php| ✅ |  |  | |
-| |Header|header.php| ✅ |  |  | |
-| |Footer|footer.php| ✅ |  |  | |
+|Quý|Giảng viên|teacher.php|  |  | ✅ | |
+| |Header|header.php|  | ✅ |  | |
+| |Footer|footer.php|  |  | ✅ | |
 ||Checkout|checkout/step[1, 2, 3].php| ✅ |  |  | |
 ---
