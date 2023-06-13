@@ -24,7 +24,7 @@
 | |Footer|footer.html|  |  | ✅ | |
 ||Checkout|checkout/step[1, 2, 3].hmtl|  |  | ✅ | |
 ---
-1️⃣Giai đoạn 2 - Back end
+2️⃣Giai đoạn 2 - Back end
 ---
 | Tên | Nội dung công việc | File name | Chưa làm |Đang làm | Đã xong |Ghi chú|
 | -   | -                  | -         | -          | -|-| -|
