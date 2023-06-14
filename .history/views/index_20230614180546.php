@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../database/database.php');
-$selects_slider = "SELECT * FROM sliders ORDER BY id DESC";
+$selects_slider = "SELECT * FROM sliders ORDER BY id DESC LIMIT 3";
 $query_slider = mysqli_query(openConnection(), $selects_slider);
 $select_topsale = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail FROM `courses` JOIN users  ON courses.teacher_id = users.id ORDER BY teacher_id DESC LIMIT 12";
 $query_topsale = mysqli_query(openConnection(), $select_topsale);
@@ -40,7 +40,7 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 			<div class="row">
 
 				<!-- slider -->
-				<swiper-container class="mySwiper p-0" navigation="true" pagination="true" keyboard="true" mousewheel="true"
+				<swiper-container class="mySwiper" navigation="true" pagination="true" keyboard="true" mousewheel="true"
 					css-mode="true">
 					<?php
 					while ($list_slider = mysqli_fetch_array($query_slider)) {
@@ -58,7 +58,6 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 				</swiper-container>
 
 			</div>
-		</div>
 
 			<div class="container">
 				<!-- title top sale -->

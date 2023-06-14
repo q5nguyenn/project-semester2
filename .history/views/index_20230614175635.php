@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../database/database.php');
-$selects_slider = "SELECT * FROM sliders ORDER BY id DESC";
+$selects_slider = "SELECT * FROM sliders ORDER BY id DESC LIMIT 3";
 $query_slider = mysqli_query(openConnection(), $selects_slider);
 $select_topsale = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail FROM `courses` JOIN users  ON courses.teacher_id = users.id ORDER BY teacher_id DESC LIMIT 12";
 $query_topsale = mysqli_query(openConnection(), $select_topsale);
@@ -10,7 +10,7 @@ $query_sale = mysqli_query(openConnection(), $select_sale);
 $select_starup = "SELECT courses.*,  users.name as teacher_name, users.thumbnail as teacher_thumbnail FROM `courses` JOIN users  ON courses.teacher_id = users.id JOIN departments ON courses.department_id = departments.id AND courses.department_id = 24 ORDER BY teacher_id  DESC LIMIT 5";
 $query_starup = mysqli_query(openConnection(), $select_starup);
 $select_faculties = "SELECT * FROM faculties ORDER BY id ASC LIMIT 12";
-$query_faculties = mysqli_query(openConnection(), $select_faculties);
+$query_faculties = mysqli_query(openConnection(),$select_faculties);
 ?>
 
 <!DOCTYPE html>
@@ -36,31 +36,18 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 	<main class="min-vh-100">
 		<!-- home page -->
 		<div class="container-fluid" style="background-color: #f5f5f5; height: 100%;">
-			<!--slider -->
-			<div class="row">
-
-				<!-- slider -->
-				<swiper-container class="mySwiper p-0" navigation="true" pagination="true" keyboard="true" mousewheel="true"
-					css-mode="true">
-					<?php
-					while ($list_slider = mysqli_fetch_array($query_slider)) {
-						?>
-						<swiper-slide>
-							<div style="height: 385px; width: 100%;">
-								<a href=""><img src="../public<?php echo $list_slider['thumbnail'] ?>" class="d-block"
-										alt="..." style="height: 100%; width: 100%; object-fit: cover;"></a>
-							</div>
-						</swiper-slide>
-						<?php
-					}
-					?>
-
-				</swiper-container>
-
-			</div>
-		</div>
-
 			<div class="container">
+				<!--slider -->
+				<div class="row">
+
+					<!-- slider -->
+					<swiper-container class="mySwiper" navigation="true" pagination="true" keyboard="true" mousewheel="true"
+    css-mode="true">
+						<swiper-slide>Slide 1</swiper-slide>
+  					</swiper-container>
+
+				</div>
+
 				<!-- title top sale -->
 				<div class="row pt-5">
 					<div class="col-lg-12 d-flex justify-content-between">
@@ -225,17 +212,11 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 
 									<div class="content-course">
 										<h3 class="cart-course__title">
-											<p>
-												<?php echo $list_startup['name'] ?>
-											</p>
+											<p><?php echo $list_startup['name'] ?></p>
 										</h3>
 										<div class="namegv">
-											<span style="float: left;">
-												<?php echo $list_startup['teacher_name'] ?>
-											</span>
-											<span class="price-principal">
-												<?php echo $list_startup['price'] ?>
-											</span>
+											<span style="float: left;"><?php echo $list_startup['teacher_name'] ?></span>
+											<span class="price-principal"><?php echo $list_startup['price'] ?></span>
 										</div>
 									</div>
 									<div class="price-count" style="clear: both;">
@@ -246,22 +227,18 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 											<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
 											<i class="bi bi-star" style="font-size: 14px;"></i>
 										</div>
-										<span class="price-discount">
-											<?php echo $list_startup['discount'] ?>
-										</span>
+										<span class="price-discount"><?php echo $list_startup['discount'] ?></span>
 									</div>
 
 
 								</div>
 								<div class="position-absolute top-0 start-0 text-center sale-price rounded">
-									<p>-
-										<?php echo $round_discount . '%' ?>
-									</p>
+									<p>-<?php echo $round_discount .'%' ?></p>
 								</div>
 							</a>
 
 						</div>
-						<?php
+					<?php
 					}
 					?>
 
@@ -388,24 +365,20 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 
 				<!-- select more course -->
 				<div class="row mt-3">
-					<?php
-					while ($list_faculties = mysqli_fetch_array($query_faculties)) {
-
-
-						?>
+					<?php 
+						while ($list_faculties = mysqli_fetch_array($query_faculties)) {
+							
+						
+					?>
 						<div class="col-2 mb-3">
 							<a href="#"
 								class="bg-danger d-flex flex-column justify-content-center align-items-center pt-3 pb-3 bg-light shadow-sm bg-body rounded text-decoration-none text-black">
-								<span style="font-size: 23px;">
-									<?php echo $list_faculties['icon'] ?>
-								</span>
-								<span>
-									<?php echo $list_faculties['name'] ?>
-								</span>
+								<span style="font-size: 23px;"><?php echo $list_faculties['icon']?></span>
+								<span><?php echo $list_faculties['name'] ?></span>
 							</a>
 						</div>
-						<?php
-					}
+					<?php 
+						}
 					?>
 
 				</div>
@@ -620,12 +593,12 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 				</div>
 
 			</div>
-		
+		</div>
 	</main>
 	<!-- Footer Start -->
 	<?php
 	require_once 'layouts/footer.php'
-		?>
+	?>
 	<!-- Footer End -->
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

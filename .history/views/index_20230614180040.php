@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../database/database.php');
-$selects_slider = "SELECT * FROM sliders ORDER BY id DESC";
+$selects_slider = "SELECT * FROM sliders ORDER BY id DESC LIMIT 3";
 $query_slider = mysqli_query(openConnection(), $selects_slider);
 $select_topsale = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail FROM `courses` JOIN users  ON courses.teacher_id = users.id ORDER BY teacher_id DESC LIMIT 12";
 $query_topsale = mysqli_query(openConnection(), $select_topsale);
@@ -36,31 +36,10 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 	<main class="min-vh-100">
 		<!-- home page -->
 		<div class="container-fluid" style="background-color: #f5f5f5; height: 100%;">
-			<!--slider -->
-			<div class="row">
-
-				<!-- slider -->
-				<swiper-container class="mySwiper p-0" navigation="true" pagination="true" keyboard="true" mousewheel="true"
-					css-mode="true">
-					<?php
-					while ($list_slider = mysqli_fetch_array($query_slider)) {
-						?>
-						<swiper-slide>
-							<div style="height: 385px; width: 100%;">
-								<a href=""><img src="../public<?php echo $list_slider['thumbnail'] ?>" class="d-block"
-										alt="..." style="height: 100%; width: 100%; object-fit: cover;"></a>
-							</div>
-						</swiper-slide>
-						<?php
-					}
-					?>
-
-				</swiper-container>
-
-			</div>
-		</div>
-
 			<div class="container">
+				<!--slider -->
+				<div class="container-fluid"></div>
+
 				<!-- title top sale -->
 				<div class="row pt-5">
 					<div class="col-lg-12 d-flex justify-content-between">
@@ -404,7 +383,7 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 								</span>
 							</a>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 
@@ -620,7 +599,7 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 				</div>
 
 			</div>
-		
+		</div>
 	</main>
 	<!-- Footer Start -->
 	<?php

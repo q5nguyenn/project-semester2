@@ -23,5 +23,5 @@ $(document).ready(function () {
 		$(`[data-parent=${id}]`).show(300);
 	});
 
-	$('header').css('height', $('#nav-bar').height());
+	$('header').css('height', '200px');
 });
