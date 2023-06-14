@@ -2,6 +2,10 @@
 require_once '../database.php';
 require_once '../utility.php';
 
+if (!empty(checkLogin())) {
+	header("Location: ../../views/index.php");
+}
+
 $email = getPOST('email');
 $password = getPOST('password');
 $remember = getPOST('remember');
@@ -12,22 +16,21 @@ $_SESSION['email'] = $email;
 
 $sql = "SELECT * FROM `users` WHERE email = '$email'";
 $user = excuteResult($sql, true);
-if (!$user) {
+if (empty($user)) {
 	header("Location: ../../views/auth/signin.php");
 	$_SESSION['error'] = '*Tài khoản không tồn tại.';
 } else {
 	if (password_verify($password, $user['password'])) {
 		$_SESSION['user'] = $user;
 		if ($remember == 1) {
+			$remember_token =  bin2hex(random_bytes(32));
+			$sql = "UPDATE users SET remember_token = '" . $remember_token . "' WHERE id = '" . $user['id'] . "'";
+			excute($sql);
+			setcookie('remember_token', $remember_token, time() + 120, '/');
 			setcookie('id', $user['id'], time() + 120, '/');
-			setcookie('email', $email, time() + 120, '/');
-			setcookie('password', $password, time() + 120, '/');
-			setcookie('remember', 1, time() + 120, '/');
 		} else {
+			setcookie('remember_token', $remember_token, time(), '/');
 			setcookie('id', $user['id'], time(), '/');
-			setcookie('email', $email, time(), '/');
-			setcookie('password', $password, time(), '/');
-			setcookie('remember', 1, time(), '/');
 		}
 		header("Location: ../../views/index.php");
 	} else {
