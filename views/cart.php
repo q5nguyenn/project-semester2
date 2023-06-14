@@ -67,8 +67,8 @@
           <div class="col-md-4" >
             <div class="card border-0" style="background-color: #e8e8e8">
               <div class="card-body d-flex flex-column justify-content-between">
-                <h5 class="card-title fs-3 text-danger">399.000 <sup>đ</sup></h5>
-                <p class="product-price"><del>700,000<sup>đ</sup></del></p>
+                <h5 class="card-title fs-3 text-danger">399.000</h5>
+                <p class="product-price"><del>700,000đ</del></p>
                 <a href="#" class="btn btn-warning w-50 text-white fw-bold">THANH TOÁN</a>
               </div>
             </div>

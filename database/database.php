@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require_once 'config.php';
 function openConnection()
 {
 	$conn = new mysqli(SERVERNAME, USER_NAME, PASSWORD, DBNAME);
@@ -33,10 +33,31 @@ function excuteResult($sql, $first = false)
 		while ($row = $result->fetch_assoc()) {
 			$data[] = $row;
 		}
+	} else {
+		return false;
 	}
 	if ($first == true) {
 		$data = reset($data);
 	}
 	closeConnection($conn);
 	return $data;
+}
+
+
+function checkLogin()
+{
+	if (isset($_COOKIE['remember_token']) && !empty($_COOKIE['remember_token'])) {
+		$remember_token = $_COOKIE['remember_token'];
+		$id =  $_COOKIE['id'];
+		$sql = "SELECT * FROM `users` WHERE id = '" . $id . "' AND remember_token = '" . $remember_token . "'";
+		$user = excuteResult($sql, true);
+		if (count($user) > 0) {
+			return $user;
+		} else {
+			return null;
+		}
+	} else if (isset($_SESSION['user'])) {
+		return  $_SESSION['user'];
+	}
+	return null;
 }

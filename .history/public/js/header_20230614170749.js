@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+function addClassSlider() {
+	var listClassSlider = document.getElementsByClassName('item-slide');
+	var listClass = listClassSlider[0];
+	console.log(listClass);
+	listClass.classList.add('active');
+}
+addClassSlider();
+	
+=======
 $(document).ready(function () {
 	$('#category-toggle').click(function () {
 		$('#category-menu').toggle(300);
@@ -23,5 +33,5 @@ $(document).ready(function () {
 		$(`[data-parent=${id}]`).show(300);
 	});
 
-	$('header').css('height', '200px');
+	$('header').css('height', $('#nav-bar').height());
 });

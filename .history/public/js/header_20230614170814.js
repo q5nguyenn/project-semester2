@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 	$('#category-toggle').click(function () {
 		$('#category-menu').toggle(300);
@@ -23,5 +24,5 @@ $(document).ready(function () {
 		$(`[data-parent=${id}]`).show(300);
 	});
 
-	$('header').css('height', '200px');
+	$('header').css('height', $('#nav-bar').height());
 });
