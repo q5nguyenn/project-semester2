@@ -26,9 +26,9 @@ if (isset($_SESSION['error'])) {
 
 <body>
 	<main>
-		<div class="bg-image-container" style="background-image: url(/public/images/imgStar.jpg); background-size: cover; background-position: center center;min-height: 100vh;">
+		<div class="bg-image-container" style="background-image: url(../../public/images/bg-01.png); background-size: cover; background-position: center center;min-height: 100vh;">
 			<div class="container-fluid">
-				<div class="row justify-content-around bg-danger">
+				<div class="row justify-content-around ">
 					<h2 class="text-center text-white pt-5">STAR CLASS</h2>
 					<form class="col-md-3 bg-white p-3 py-3 my-3 rounded-3" action="../../database/auth/signinController.php" method="post" id="form-signin">
 						<div class="form-group mt-3 ">
