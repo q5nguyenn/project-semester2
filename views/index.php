@@ -22,10 +22,10 @@ require_once('../database/database.php');
 	require_once 'layouts/header.php';
 	?>
 	<!-- Header End -->
-	<main class="min-vh-100">
+	<!-- <main class="min-vh-100">
 		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad numquam architecto repudiandae vero minima perspiciatis
 		eius iste nulla inventore. Fugiat ex ducimus sunt minima, culpa nihil eos tenetur nulla similique.
-	</main>
+	</main> -->
 	<!-- Footer Start -->
 	<?php
 	require_once 'layouts/footer.php'

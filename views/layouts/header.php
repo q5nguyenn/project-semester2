@@ -41,7 +41,7 @@ if (checkLogin()) {
 				</div>
 			</div>
 			<div class="flex-fill">
-				<form class="d-flex rounded-circle position-relative" action="../../database/searchController.php">
+				<form class="d-flex rounded-circle position-relative" action="../database/searchController.php">
 					<input class="form-control me-2" type="text" placeholder="Search" name="keyword">
 					<i class="bi bi-search position-absolute top-50 end-0 translate-middle btn p-0 pe-2"></i>
 				</form>
