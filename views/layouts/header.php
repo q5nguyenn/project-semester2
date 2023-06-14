@@ -1,10 +1,11 @@
 <?php
 require_once(($base_url ?? '') . '../database/database.php');
-$user = $_SESSION['user'];
 
 $faculties = excuteResult("SELECT * FROM `faculties`");
 $departments = excuteResult("SELECT * FROM `departments`");
-if (checkLogin()) {
+if (!empty(checkLogin())) {
+	$user = checkLogin();
+	$sql = "SELECT * FROM carts where user_id = '" . $user['id'] . "'";
 	$carts = excuteResult("SELECT * FROM carts where user_id = '" . $user['id'] . "'");
 } else {
 	$carts = [];
@@ -42,13 +43,16 @@ if (checkLogin()) {
 			</div>
 			<div class="flex-fill">
 				<form class="d-flex rounded-circle position-relative" action="../database/searchController.php">
-					<input class="form-control me-2" type="text" placeholder="Search" name="keyword">
-					<i class="bi bi-search position-absolute top-50 end-0 translate-middle btn p-0 pe-2"></i>
-				</form>
+
+					<form class="d-flex rounded-circle position-relative" action="<?= $base_url2 ?>database/searchController.php">
+
+						<input class="form-control me-2" type="text" placeholder="Search" name="keyword">
+						<i class="bi bi-search position-absolute top-50 end-0 translate-middle btn p-0 pe-2"></i>
+					</form>
 			</div>
 			<div class="position-relative">
-				<a href="<?= checkLogin() ? 'cart.php' : 'auth/signin.php' ?>" class="btn btn-light"><i class="bi bi-bag"></i></a>
-				<?php if (checkLogin()) {
+				<a href="<?= !empty(checkLogin()) ? 'cart.php' : 'auth/signin.php' ?>" class="btn btn-light"><i class="bi bi-bag"></i></a>
+				<?php if (!empty(checkLogin())) {
 					echo '<span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:5px; right: -15px">
 									' . count($carts) . '
 								</span>';
@@ -59,7 +63,7 @@ if (checkLogin()) {
 				<a class="btn btn-secondary"><i class="bi bi-unlock me-2"></i><span>Kích hoạt khoá học</span></a>
 			</div>
 			<?php
-			if (checkLogin()) {
+			if (!empty(checkLogin())) {
 				echo '<div class="ms-2 position-relative" id="user">
 									<div class="user-toogle bg-primary  btn rounded-circle text-white fw-bold" id="user-toggle">Q</div>
 									<div class="position-absolute bg-white p-1 rounded menu-links shadow-sm" id="user-menu" style="display: none;">

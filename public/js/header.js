@@ -23,5 +23,10 @@ $(document).ready(function () {
     $(`[data-parent=${id}]`).show(300);
   });
 
+<<<<<<< HEAD
   $("header").css("height", $("#nav-bar").height());
+=======
+	
+	$('header').css('height', $('#nav-bar').height());
+>>>>>>> 0f9308b31d164c742e195fc5f92d1edf3c52d4c1
 });

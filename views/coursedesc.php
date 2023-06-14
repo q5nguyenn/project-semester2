@@ -377,7 +377,6 @@ $reviews = excuteResult($sql_reviews);
             <div class="fs-4 fw-bold border-bottom pb-2">
               Nhận xét của học viên
             </div>
-
             <?php
             foreach ($reviews as $review) {
               echo '<div class="row border-bottom">
@@ -512,6 +511,7 @@ $reviews = excuteResult($sql_reviews);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../public/js/header.js"></script>
   <script src="../public/js/utility.js"></script>
+
 </body>
 
 </html>
