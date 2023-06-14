@@ -30,7 +30,7 @@ function excuteResult($sql, $first = false)
 	$conn = openConnection();
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-		while ($row = $result->fetch_assoc()) {
+		while ($row = $result-> ()) {
 			$data[] = $row;
 		}
 	} else {
@@ -42,7 +42,6 @@ function excuteResult($sql, $first = false)
 	closeConnection($conn);
 	return $data;
 }
-
 
 function checkLogin()
 {
