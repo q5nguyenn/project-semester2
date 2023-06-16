@@ -4,6 +4,7 @@ include '../database/database.php';
 include '../database/utility.php';
 $id = getGET('id');
 
+
 // if (isset($_POST['wishlist'])) {
 //   $wishlist = $_POST['wishlist'];
 // }
@@ -34,6 +35,7 @@ $reviews = excuteResult($sql_reviews);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="../public/css/header.css" />
+  <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
@@ -88,8 +90,8 @@ $reviews = excuteResult($sql_reviews);
                 <i class="bi bi-people-fill"></i>
                 <span>8081 hoc vien</span>
               </div>
-              <div class="d-flex align-items-center col rounded-circle bg-light flex-grow-0" style="width: 40px; height: 40px">
-                <i class="bi bi-heart-fill text-danger"></i>
+              <div id="like" class="d-flex align-items-center col rounded-circle bg-light flex-grow-0" style="width: 40px; height: 40px">
+                <i class="bi bi-heart-fill text-muted like_cart"></i>
               </div>
             </div>
           </div>
@@ -274,7 +276,7 @@ $reviews = excuteResult($sql_reviews);
               </div>
               <form action="" method="post">
                 <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                  <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+                  <i class="bi bi-heart text-info" id="like_cart_01" style="cursor: pointer"></i>
                 </div>
               </form>
             </div>
@@ -305,7 +307,7 @@ $reviews = excuteResult($sql_reviews);
                 </div>
               </div>
               <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+                <i class="bi bi-heart text-info" id="like_cart_02" style="cursor: pointer"></i>
               </div>
             </div>
             <div class="my-2 d-flex border-bottom">
@@ -335,7 +337,7 @@ $reviews = excuteResult($sql_reviews);
                 </div>
               </div>
               <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+                <i class="bi bi-heart text-info" id="like_cart_03" style="cursor: pointer"></i>
               </div>
             </div>
 
@@ -511,7 +513,28 @@ $reviews = excuteResult($sql_reviews);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../public/js/header.js"></script>
   <script src="../public/js/utility.js"></script>
-
+  <script>
+    var element = document.getElementsByClassName('like_cart');
+    $(element).click(function() {
+      $(element).toggleClass('like');
+      $(element).toggleClass('text-muted');
+    });
+    var element01 = document.getElementById('like_cart_01');
+    $(element01).click(function() {
+      $(element01).toggleClass('like');
+      $(element01).toggleClass('text-info');
+    });
+    var element02 = document.getElementById('like_cart_02');
+    $(element02).click(function() {
+      $(element02).toggleClass('like');
+      $(element02).toggleClass('text-info');
+    });
+    var element03 = document.getElementById('like_cart_03');
+    $(element03).click(function() {
+      $(element03).toggleClass('like');
+      $(element03).toggleClass('text-info');
+    });
+  </script>
 </body>
 
 </html>
