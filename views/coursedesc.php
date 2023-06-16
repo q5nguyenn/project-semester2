@@ -512,6 +512,12 @@ $reviews = excuteResult($sql_reviews);
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="../public/js/header.js"></script>
+	<script>
+		$('').click(function (e) { 
+			e.preventDefault();
+			
+		});
+	</script>
 </body>
 
 </html>
