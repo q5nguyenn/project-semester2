@@ -12,10 +12,14 @@
 	<link rel="stylesheet" href="../public/css/pagesearch.css">
 	<link rel="stylesheet" href="../public/css/reset.css">
 	<link rel="stylesheet" href="../public/css/homepage.css">
+
 </head>
 
 <body>
 	<!-- <header></header> -->
+	<h1><?php
+			echo $keyword;
+			?></h1>
 	<header>
 		<div class="container-fluid shadow-sm">
 			<div class="container d-flex py-1 align-items-center">
@@ -78,8 +82,7 @@
 					<div class="col-12">
 						<div class="d-flex justify-content-between mt-5 mb-4 align-items-center">
 							<span class="fw-bold" style="font-size: 20px; ">Kết quả tìm kiếm: powerpoint</span>
-							<span style="font-size: 18px;">Tìm thấy <span style="font-size: 18px;"
-									class="fw-bold">11</span> khóa học online</span>
+							<span style="font-size: 18px;">Tìm thấy <span style="font-size: 18px;" class="fw-bold">11</span> khóa học online</span>
 						</div>
 					</div>
 				</div>
@@ -122,163 +125,173 @@
 
 					<div class="col-lg-3 mb-4">
 						<a class="text-decoration-none text-black position-relative" href="#">
-									<div class="card shadow bg-body rounded">
-										<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
-								
-											<div class="content-course">
-												<h3 class="cart-course__title">
-													<p>Học đệm hát Guitar cùng Haketu</p>
-												</h3>
-												<div class="namegv">
-													<span style="float: left;">Hà Kế Tú</span>
-													<span class="price-principal">700.000đ</span>
-												</div>
-											</div>
-											<div class="price-count" style="clear: both;">
-												<div class="rate-combo">
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star" style="font-size: 14px;"></i>
-												</div>
-												<span class="price-discount">199.000đ</span>
-											</div>
-										
-										
+							<div class="card shadow bg-body rounded">
+								<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
+
+								<div class="content-course">
+									<h3 class="cart-course__title">
+										<p>Học đệm hát Guitar cùng Haketu</p>
+									</h3>
+									<div class="namegv">
+										<span style="float: left;">Hà Kế Tú</span>
+										<span class="price-principal">700.000đ</span>
 									</div>
-									<div class="position-absolute top-0 start-0 text-center sale-price rounded"><p>-72%</p></div>
+								</div>
+								<div class="price-count" style="clear: both;">
+									<div class="rate-combo">
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star" style="font-size: 14px;"></i>
+									</div>
+									<span class="price-discount">199.000đ</span>
+								</div>
+
+
+							</div>
+							<div class="position-absolute top-0 start-0 text-center sale-price rounded">
+								<p>-72%</p>
+							</div>
 						</a>
-						
-					</div>	
+
+					</div>
 
 					<div class="col-lg-3 mb-4">
 						<a class="text-decoration-none text-black position-relative" href="#">
-									<div class="card shadow bg-body rounded">
-										<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
-								
-											<div class="content-course">
-												<h3 class="cart-course__title">
-													<p>Học đệm hát Guitar cùng Haketu</p>
-												</h3>
-												<div class="namegv">
-													<span style="float: left;">Hà Kế Tú</span>
-													<span class="price-principal">700.000đ</span>
-												</div>
-											</div>
-											<div class="price-count" style="clear: both;">
-												<div class="rate-combo">
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star" style="font-size: 14px;"></i>
-												</div>
-												<span class="price-discount">199.000đ</span>
-											</div>
-										
-										
+							<div class="card shadow bg-body rounded">
+								<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
+
+								<div class="content-course">
+									<h3 class="cart-course__title">
+										<p>Học đệm hát Guitar cùng Haketu</p>
+									</h3>
+									<div class="namegv">
+										<span style="float: left;">Hà Kế Tú</span>
+										<span class="price-principal">700.000đ</span>
 									</div>
-									<div class="position-absolute top-0 start-0 text-center sale-price rounded"><p>-72%</p></div>
+								</div>
+								<div class="price-count" style="clear: both;">
+									<div class="rate-combo">
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star" style="font-size: 14px;"></i>
+									</div>
+									<span class="price-discount">199.000đ</span>
+								</div>
+
+
+							</div>
+							<div class="position-absolute top-0 start-0 text-center sale-price rounded">
+								<p>-72%</p>
+							</div>
 						</a>
-						
-					</div>	
+
+					</div>
 
 					<div class="col-lg-3 mb-4">
 						<a class="text-decoration-none text-black position-relative" href="#">
-									<div class="card shadow bg-body rounded">
-										<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
-								
-											<div class="content-course">
-												<h3 class="cart-course__title">
-													<p>Học đệm hát Guitar cùng Haketu</p>
-												</h3>
-												<div class="namegv">
-													<span style="float: left;">Hà Kế Tú</span>
-													<span class="price-principal">700.000đ</span>
-												</div>
-											</div>
-											<div class="price-count" style="clear: both;">
-												<div class="rate-combo">
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star" style="font-size: 14px;"></i>
-												</div>
-												<span class="price-discount">199.000đ</span>
-											</div>
-										
-										
+							<div class="card shadow bg-body rounded">
+								<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
+
+								<div class="content-course">
+									<h3 class="cart-course__title">
+										<p>Học đệm hát Guitar cùng Haketu</p>
+									</h3>
+									<div class="namegv">
+										<span style="float: left;">Hà Kế Tú</span>
+										<span class="price-principal">700.000đ</span>
 									</div>
-									<div class="position-absolute top-0 start-0 text-center sale-price rounded"><p>-72%</p></div>
+								</div>
+								<div class="price-count" style="clear: both;">
+									<div class="rate-combo">
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star" style="font-size: 14px;"></i>
+									</div>
+									<span class="price-discount">199.000đ</span>
+								</div>
+
+
+							</div>
+							<div class="position-absolute top-0 start-0 text-center sale-price rounded">
+								<p>-72%</p>
+							</div>
 						</a>
-						
-					</div>	
+
+					</div>
 
 					<div class="col-lg-3 mb-4">
 						<a class="text-decoration-none text-black position-relative" href="#">
-									<div class="card shadow bg-body rounded">
-										<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
-								
-											<div class="content-course">
-												<h3 class="cart-course__title">
-													<p>Học đệm hát Guitar cùng Haketu</p>
-												</h3>
-												<div class="namegv">
-													<span style="float: left;">Hà Kế Tú</span>
-													<span class="price-principal">700.000đ</span>
-												</div>
-											</div>
-											<div class="price-count" style="clear: both;">
-												<div class="rate-combo">
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star" style="font-size: 14px;"></i>
-												</div>
-												<span class="price-discount">199.000đ</span>
-											</div>
-										
-										
+							<div class="card shadow bg-body rounded">
+								<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
+
+								<div class="content-course">
+									<h3 class="cart-course__title">
+										<p>Học đệm hát Guitar cùng Haketu</p>
+									</h3>
+									<div class="namegv">
+										<span style="float: left;">Hà Kế Tú</span>
+										<span class="price-principal">700.000đ</span>
 									</div>
-									<div class="position-absolute top-0 start-0 text-center sale-price rounded"><p>-72%</p></div>
+								</div>
+								<div class="price-count" style="clear: both;">
+									<div class="rate-combo">
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star" style="font-size: 14px;"></i>
+									</div>
+									<span class="price-discount">199.000đ</span>
+								</div>
+
+
+							</div>
+							<div class="position-absolute top-0 start-0 text-center sale-price rounded">
+								<p>-72%</p>
+							</div>
 						</a>
-						
-					</div>	
+
+					</div>
 
 					<div class="col-lg-3 mb-4">
 						<a class="text-decoration-none text-black position-relative" href="#">
-									<div class="card shadow bg-body rounded">
-										<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
-								
-											<div class="content-course">
-												<h3 class="cart-course__title">
-													<p>Học đệm hát Guitar cùng Haketu</p>
-												</h3>
-												<div class="namegv">
-													<span style="float: left;">Hà Kế Tú</span>
-													<span class="price-principal">700.000đ</span>
-												</div>
-											</div>
-											<div class="price-count" style="clear: both;">
-												<div class="rate-combo">
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
-													<i class="bi bi-star" style="font-size: 14px;"></i>
-												</div>
-												<span class="price-discount">199.000đ</span>
-											</div>
-										
-										
+							<div class="card shadow bg-body rounded">
+								<img src="../public/images/khoa-hoc-dem-hat-guitar-co-ban.jpeg" style="width: 100%;" class="card-img-top" alt="...">
+
+								<div class="content-course">
+									<h3 class="cart-course__title">
+										<p>Học đệm hát Guitar cùng Haketu</p>
+									</h3>
+									<div class="namegv">
+										<span style="float: left;">Hà Kế Tú</span>
+										<span class="price-principal">700.000đ</span>
 									</div>
-									<div class="position-absolute top-0 start-0 text-center sale-price rounded"><p>-72%</p></div>
+								</div>
+								<div class="price-count" style="clear: both;">
+									<div class="rate-combo">
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star-fill" style="color: #f26c4f; font-size: 14px;"></i>
+										<i class="bi bi-star" style="font-size: 14px;"></i>
+									</div>
+									<span class="price-discount">199.000đ</span>
+								</div>
+
+
+							</div>
+							<div class="position-absolute top-0 start-0 text-center sale-price rounded">
+								<p>-72%</p>
+							</div>
 						</a>
-						
-					</div>	
+
+					</div>
 
 				</div>
 
@@ -302,8 +315,7 @@
 							<i class="bi bi-telephone text-warning"></i> <span>+ 84 986295956</span>
 						</div>
 						<div class="my-1">
-							<a href="mailto:q5nguyenn@gmail.com" class="text-decoration-none text-white"><i
-									class="bi bi-envelope-paper text-warning"></i>
+							<a href="mailto:q5nguyenn@gmail.com" class="text-decoration-none text-white"><i class="bi bi-envelope-paper text-warning"></i>
 								<span>q5nguyenn@gmail.com</span></a>
 						</div>
 						<div class="my-1">
@@ -378,12 +390,12 @@
 	<script>
 		$('#department').hide();
 		$('#menu').hide();
-		$('#categories').click(function (e) {
+		$('#categories').click(function(e) {
 			e.preventDefault();
 			$('#department').toggle(300);
 		});
 
-		$('#user').click(function (e) {
+		$('#user').click(function(e) {
 			e.preventDefault();
 			$('#menu').toggle(300);
 		});

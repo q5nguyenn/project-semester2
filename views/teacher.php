@@ -1,8 +1,14 @@
 <?php
+session_start();
 require_once '../database/database.php';
 require_once '../database/utility.php';
 $id = getGET('id');
-$teacher = excuteResult("SELECT * FROM users where id = '$id'", true);
+$teacher = excuteResult("SELECT users.*, role_id FROM users
+JOIN role_user ON role_user.user_id = users.id
+WHERE users.id = '$id'", true);
+if ($teacher['role_id'] != 3) {
+	header("Location: errors/404.php");
+}
 $courses = excuteResult("SELECT * FROM users
 JOIN courses ON users.id = courses.teacher_id
 where courses.teacher_id = '$id'");

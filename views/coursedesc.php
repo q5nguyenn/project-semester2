@@ -1,16 +1,19 @@
 <?php
+session_start();
 include '../database/database.php';
 include '../database/utility.php';
 $id = getGET('id');
+
+// if (isset($_POST['wishlist'])) {
+//   $wishlist = $_POST['wishlist'];
+// }
 
 $sql = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail, departments.name as department_name,faculties.name as faculty_name FROM `courses`
 JOIN users ON courses.teacher_id = users.id 
 JOIN departments ON courses.department_id = departments.id 
 JOIN faculties ON departments.faculty_id = faculties.id
--- JOIN reviews ON reviews.content = users.id
 WHERE courses.id = " . $id . "";
-// echo $sql;
-// die();
+
 $courses = excuteResult($sql, true);
 
 $sql_reviews = 'SELECT users.name as name, reviews.content as content, rate, users.thumbnail as avatar FROM `reviews` 
@@ -34,76 +37,11 @@ $reviews = excuteResult($sql_reviews);
 </head>
 
 <body>
-  <!-- <header></header> -->
-  <header>
-    <div class="container-fluid shadow-sm">
-      <div class="container d-flex py-1 align-items-center">
-        <div>
-          <a class="btn fw-bold fs-5" href="index.html">STAR CLASSES</a>
-        </div>
-        <div class="mx-3 position-relative" id="categories">
-          <button class="btn">
-            Categories <i class="bi bi-chevron-down"></i>
-          </button>
-          <div class="position-absolute bg-white p-1 department-links rounded" id="department">
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-            <div class="p-2 btn">
-              <i class="bi bi-translate me-2"></i>Kinh doanh và khởi nghiệp
-            </div>
-          </div>
-        </div>
-        <div class="flex-fill">
-          <form class="d-flex rounded-circle position-relative">
-            <input class="form-control me-2" type="text" placeholder="Search" />
-            <i class="bi bi-search position-absolute btn"></i>
-          </form>
-        </div>
-        <div class="pe-auto">
-          <a href="#" class="btn btn-light"><i class="bi bi-bag"></i></a>
-        </div>
-        <div class="ms-2">
-          <a class="btn btn-secondary"><i class="bi bi-unlock me-2"></i><span>Kích hoạt khoá học</span></a>
-        </div>
-        <div>
-          <a href="#" class="btn btn-light ms-2">Đăng nhập</a>
-          <a href="#" class="btn btn-warning text-white ms-2">Đăng ký</a>
-        </div>
-        <div class="rounded-circle d-flex bg-primary ms-2 btn text-white fw-bold position-relative" id="user">
-          Q
-          <div class="position-absolute bg-white p-1 department-links rounded" id="menu">
-            <a class="p-2 btn d-block text-start"><i class="bi bi-translate me-2"></i>Vào học</a>
-            <a class="p-2 btn d-block text-start"><i class="bi bi-translate me-2"></i>Kích hoạt khoá học</a>
-            <a class="p-2 btn d-block text-start"><i class="bi bi-translate me-2"></i>Cập nhật hồ sơ</a>
-            <a class="p-2 btn d-block text-start"><i class="bi bi-translate me-2"></i>Giỏ hàng</a>
-            <a class="p-2 btn d-block text-start border-top"><i class="bi bi-translate me-2"></i>Đăng xuất</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Header Start -->
+  <?php
+  require_once 'layouts/header.php';
+  ?>
+  <!-- Header End -->
   <main class="min-vh-100 bg-light">
     <div class="container-fluid bg-secondary text-white">
       <div class="container">
@@ -334,9 +272,11 @@ $reviews = excuteResult($sql_reviews);
                   <span>880,000</span><sup>đ</sup>
                 </div>
               </div>
-              <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                <i class="bi bi-heart text-info" style="cursor: pointer"></i>
-              </div>
+              <form action="" method="post">
+                <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
+                  <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+                </div>
+              </form>
             </div>
             <div class="my-2 d-flex border-bottom">
               <div class="p-2 d-flex">
@@ -410,7 +350,7 @@ $reviews = excuteResult($sql_reviews);
             <div class="row d-flex">
               <div class="col-4">
                 <div>
-                  <img src="../public/images/December620171133am_ha-ke-tu_thumb.jpg" alt="" class="rounded-circle p-2" style="width: 120px" />
+                  <img src="../public/<?= $courses['teacher_thumbnail'] ?>" alt="" class="rounded-circle p-2" style="width: 120px" />
                 </div>
                 <div>
                   <i class="bi bi-people-fill p-2"></i><span class="fw-bold">11060</span><span> học viên</span>
@@ -420,7 +360,7 @@ $reviews = excuteResult($sql_reviews);
                 </div>
               </div>
               <div class="col-8">
-                <div class="fw-bold my-2">Hà Kế Tú</div>
+                <div class="fw-bold my-2"><?= $courses['teacher_name'] ?></div>
                 <div>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Pariatur corporis magni voluptates fugiat ipsum quod enim
@@ -437,7 +377,6 @@ $reviews = excuteResult($sql_reviews);
             <div class="fs-4 fw-bold border-bottom pb-2">
               Nhận xét của học viên
             </div>
-
             <?php
             foreach ($reviews as $review) {
               echo '<div class="row border-bottom">
@@ -447,11 +386,7 @@ $reviews = excuteResult($sql_reviews);
                         <div class="col-10">
                           <div class="my-2 d-flex">
                             <div class="text-warning">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
+                              ' . showStarRate($review['rate']) . '
                             </div>
                             <span style="margin-left: 20px" class="fw-bold">' . $review['name'] . '</span>
                           </div>
@@ -568,110 +503,15 @@ $reviews = excuteResult($sql_reviews);
       </div>
     </div>
   </main>
-  <!-- <footer></footer> -->
-  <footer>
-    <div class="container-fluid bg-secondary text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="py-2">
-              <a class="btn text-white fw-bold fs-5" href="index.html">STAR CLASSES</a>
-            </div>
-            <div class="my-1">
-              <i class="bi bi-geo-alt text-warning"></i>
-              <span>Số 8, Tôn Thất Thuyết, Mỹ Đình, Từ Liêm, Hà Nội</span>
-            </div>
-            <div class="my-1">
-              <i class="bi bi-telephone text-warning"></i>
-              <span>+ 84 986295956</span>
-            </div>
-            <div class="my-1">
-              <a href="mailto:q5nguyenn@gmail.com" class="text-decoration-none text-white"><i class="bi bi-envelope-paper text-warning"></i>
-                <span>q5nguyenn@gmail.com</span></a>
-            </div>
-            <div class="my-1">
-              <i class="bi bi-clock text-warning"></i>
-              <span> 8:00 - 22:00</span>
-            </div>
-          </div>
-          <div class="col">
-            <div class="fw-bold fs-5 p-2">Về Starclasses</div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Giới thiệu về Starclasses</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Câu hỏi thường gặp</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Điều khoản dịch vụ</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Hướng dẫn thanh toán</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Chính sách bảo mật</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="fw-bold fs-5 py-2">Hợp tác liên kết</div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Đăng kí giảng viên</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Giải pháp e-learning</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Đào tạo doanh nghiệp</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="text-decoration-none text-white">Quay dựng video</a>
-            </div>
-            <div class="my-1">
-              <a href="#" class="link-success text-decoration-none text-white">Đào tạo Inhouse</a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="fw-bold fs-5 py-2">Kết nối với Starclass</div>
-            <div class="my-1">
-              <a class="btn bg-primary" href="https://vi-vn.facebook.com/">
-                <i class="bi bi-facebook text-white fs-2"></i>
-              </a>
-              <a class="btn bg-danger ms-2" href="https://www.youtube.com/">
-                <i class="bi bi-youtube text-white fs-2"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid bg-dark text-white">
-      <div class="container py-3 d-flex align-items-center">
-        <div class="me-5">
-          © Công ty cổ phần đào tạo trực tuyến Starclasses - ĐKKD: 0107695756
-          - Khóa học trực tuyến dành cho người đi làm
-        </div>
-        <div>
-          <img src="https://unica.vn/media/images_v2017/bct.png" alt="" />
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <?php
+  // Footer Start
+  require_once 'layouts/footer.php';
+  ?>
+  <!-- Footer End -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="public/js/header.js"></script>
-  <script>
-    $("#department").hide();
-    $("#menu").hide();
-    $("#categories").click(function(e) {
-      e.preventDefault();
-      $("#department").toggle(300);
-    });
+  <script src="../public/js/header.js"></script>
+  <script src="../public/js/utility.js"></script>
 
-    $("#user").click(function(e) {
-      e.preventDefault();
-      $("#menu").toggle(300);
-    });
-  </script>
 </body>
 
 </html>

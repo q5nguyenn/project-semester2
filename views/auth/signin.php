@@ -1,12 +1,11 @@
 <?php
 session_start();
-
+require_once '../../database/database.php';
+if (checkLogin()) {
+	header("Location: ../index.php");
+}
 $error = $email = $password = $remember = '';
-if (isset($_COOKIE['id'])) {
-	$email = $_COOKIE['email'];
-	$password = $_COOKIE['password'];
-	$remember = $_COOKIE['remember'];
-} else if (isset($_SESSION['error'])) {
+if (isset($_SESSION['error'])) {
 	$error =  $_SESSION['error'];
 	$email =  $_SESSION['email'];
 	unset($_SESSION['error']);
