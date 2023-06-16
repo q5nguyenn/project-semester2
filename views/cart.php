@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION['giohang'])) $_SESSION['giohang']=[];
+
+?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
@@ -18,12 +23,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 bg-primary p-4">
-        <div class="start-classes">
-          <ol class="classes">
-            <li class="classes-item active fs-2 text-white">
-              <p>Gio hang (1 khoa hoc)</p>
-            </li>
-          </ol>
+        <div class="start-classes classes-item active fs-2 text-white">
+            <p>Gio hang (khoa hoc)</p>
         </div>
       </div>
       <!-- -->
@@ -45,21 +46,33 @@
         </div>
         <!--Phan hien thi khung -->
         <div class="row d-flex justify-content-center">
-          <div class="col-md-6">
+          <div class="col-md-6" style="height: 10.5em">
             <div class="card mb-3 h-100">
               <div class="card-body d-flex justify-content-between">
                 <div class="flex-grow-1">
-                  <div class="d-flex mt-5 align-items-between">
-                    <img src="https://i.pinimg.com/564x/46/2d/ae/462dae0eef67d3ff0307550f2019e7f1.jpg" alt="" class="mr-2" style="width: 140px; height: 70px;">
-                    <div class="mt-3">
-                      <h5 class="mb-0">Tên sách</h5>
-                      <p class="text-muted">Tác giả</p>
-<!--                        <h5 class="pf">399,000</h5>-->
-<!--                        <button class="border-0 bg-white"><i class="bi bi-x"></i></button>-->
-                    </div>
+                  <div class="d-flex mt-5 align-items-between ">
+                      <img src="https://i.pinimg.com/564x/46/2d/ae/462dae0eef67d3ff0307550f2019e7f1.jpg" alt="" class="mr-2" style="width: 140px; height: 70px;">
+
+                      <div class="align-items-start">
+                          <div class="d-flex align-items-center justify-content-between" >
+                              <div class="ms-2 mt-4 me-auto">
+                                  <span class="fw-bold">Sach ngoai ngu </span>
+                                  <p class="text-muted">Tác giả</p>
+                              </div>
+                          </div>
+                          <div class="mt-0">
+                              <div class="d-flex flex-column align-items-center " style="padding-left: 33em ;margin: -8em">
+                                  <button type="submit" class="btn btn-danger mb-3">Xoá tất cả</button>
+                                  <div class="d-flex align-items-center">
+                                      <h5 class="pf me-2 mb-0">399,000<sup>đ</sup></h5>
+                                      <button class="border-0 bg-white text-danger fs-3"><i class="bi bi-x"></i></button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
                   </div>
                 </div>
-                <button type="submit" class="btn btn-danger align-self-start">Xoá tất cả</button>
               </div>
             </div>
           </div>
@@ -67,7 +80,7 @@
           <div class="col-md-4" >
             <div class="card border-0" style="background-color: #e8e8e8">
               <div class="card-body d-flex flex-column justify-content-between">
-                <h5 class="card-title fs-3 text-danger">399.000</h5>
+                <h5 class="card-title fs-3 text-danger">399.000<sup>đ</sup></h5>
                 <p class="product-price"><del>700,000đ</del></p>
                 <a href="#" class="btn btn-warning w-50 text-white fw-bold">THANH TOÁN</a>
               </div>
@@ -91,88 +104,136 @@
                               space-between="30" free-mode="true"   >
               <swiper-slide>
                 <div class="card shadow mb-5 bg-body " >
-                  <div class="mt-4 border-secondary mx-auto ">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                  <div class=" border-secondary mx-auto ">
+                    <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
                   </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
-
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
+                  <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                    <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                    <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                     <div class="text-warning">
+                         <i class="bi bi-star-fill"></i>
+                         <i class="bi bi-star-fill"></i>
+                         <i class="bi bi-star-fill"></i>
+                         <i class="bi bi-star-fill"></i>
+                         <i class="bi bi-star-half"></i>
+                     </div>
                   </div>
                 </div>
               </swiper-slide>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+                <swiper-slide>
+                    <div class="card shadow mb-5 bg-body " >
+                        <div class=" border-secondary mx-auto ">
+                            <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                            <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                            <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+                <swiper-slide>
+                    <div class="card shadow mb-5 bg-body " >
+                        <div class=" border-secondary mx-auto ">
+                            <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                            <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                            <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+                <swiper-slide>
+                    <div class="card shadow mb-5 bg-body " >
+                        <div class=" border-secondary mx-auto ">
+                            <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                            <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                            <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+                <swiper-slide>
+                    <div class="card shadow mb-5 bg-body " >
+                        <div class=" border-secondary mx-auto ">
+                            <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                            <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                            <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
-            </swiper-container>
+                <swiper-slide>
+                    <div class="card shadow mb-5 bg-body " >
+                        <div class=" border-secondary mx-auto ">
+                            <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                            <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                            <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
+
+                <swiper-slide>
+                    <div class="card shadow mb-5 bg-body " >
+                        <div class=" border-secondary mx-auto ">
+                            <img src="../public/images/center-thaibinh.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                        </div>
+                        <div class="card-body d-flex flex-column align-items-center " style="height: 160px;">
+                            <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 20px;">Ngoại Ngữ Cho Bé</a>
+                            <p class="card-text text-center mt-2 mb-3">Causality Investing Speaker</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
           </div>
         </div>
 

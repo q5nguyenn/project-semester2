@@ -1,12 +1,11 @@
 <?php
 session_start();
-
+require_once '../../database/database.php';
+if (checkLogin()) {
+	header("Location: ../index.php");
+}
 $error = $email = $password = $remember = '';
-if (isset($_COOKIE['id'])) {
-	$email = $_COOKIE['email'];
-	$password = $_COOKIE['password'];
-	$remember = $_COOKIE['remember'];
-} else if (isset($_SESSION['error'])) {
+if (isset($_SESSION['error'])) {
 	$error =  $_SESSION['error'];
 	$email =  $_SESSION['email'];
 	unset($_SESSION['error']);
@@ -27,9 +26,9 @@ if (isset($_COOKIE['id'])) {
 
 <body>
 	<main>
-		<div class="bg-image-container" style="background-image: url(/public/images/imgStar.jpg); background-size: cover; background-position: center center;min-height: 100vh;">
+		<div class="bg-image-container" style="background-image: url(../../public/images/bg-01.png); background-size: cover; background-position: center center;min-height: 100vh;">
 			<div class="container-fluid">
-				<div class="row justify-content-around bg-danger">
+				<div class="row justify-content-around ">
 					<h2 class="text-center text-white pt-5">STAR CLASS</h2>
 					<form class="col-md-3 bg-white p-3 py-3 my-3 rounded-3" action="../../database/auth/signinController.php" method="post" id="form-signin">
 						<div class="form-group mt-3 ">
@@ -55,7 +54,7 @@ if (isset($_COOKIE['id'])) {
 						</div>
 						<div class="d-flex justify-content-between mt-4">
 							<small>Quên mật khẩu?</small>
-							<small>Chưa có tài khoản? <a href="signup.html">Đăng ký</a></small>
+							<small>Chưa có tài khoản? <a href="signup.php">Đăng ký</a></small>
 						</div>
 						<div class="d-flex justify-content-center mt-3">
 							<div class="fw-bold">Hoặc đăng nhập với</div>
