@@ -55,7 +55,7 @@ if (isset($_COOKIE['id'])) {
 						</div>
 						<div class="d-flex justify-content-between mt-4">
 							<small>Quên mật khẩu?</small>
-							<small>Chưa có tài khoản? <a href="signup.html">Đăng ký</a></small>
+							<small>Chưa có tài khoản? <a href="signup.php">Đăng ký</a></small>
 						</div>
 						<div class="d-flex justify-content-center mt-3">
 							<div class="fw-bold">Hoặc đăng nhập với</div>
