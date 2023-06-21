@@ -52,3 +52,11 @@ function showStarRate($rate)
 	}
 	return $htmlString;
 }
+
+function setInterval($f, $seconds)
+{
+	while (true) {
+		$f();
+		sleep($seconds);
+	}
+}

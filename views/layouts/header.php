@@ -53,9 +53,12 @@ if (!empty(checkLogin())) {
 			<div class="position-relative">
 				<a href="<?= !empty(checkLogin()) ? 'cart.php' : 'auth/signin.php' ?>" class="btn btn-light"><i class="bi bi-bag"></i></a>
 				<?php if (!empty(checkLogin())) {
-					echo '<span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:5px; right: -15px">
-									' . count($carts) . '
-								</span>';
+					if (!empty($carts)) {
+
+						echo '<span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:5px; right: -15px">
+						' . count($carts) . '
+						</span>';
+					}
 				} ?>
 
 			</div>
