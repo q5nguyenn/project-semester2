@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once '../../database/database.php';
-if (checkLogin()) {
-	header("Location: ../index.php");
-}
+// if (checkLogin()) {
+// 	header("Location: ../index.php");
+// }
 $error = $email = $password = $remember = '';
 if (isset($_SESSION['error'])) {
 	$error =  $_SESSION['error'];
