@@ -6,6 +6,9 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 $user_id = 2; // ID người dùng
+if(!empty(checkLogin())) {
+    $user_id = checkLogin()['id'];
+}
 
 // Lấy thông tin của người dùng từ cơ sở dữ liệu
 $sql_check = "SELECT * FROM users WHERE id = '" . $user_id . "'";
@@ -15,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = getPOST('name');
     $email = getPOST('email');
     $phone_number = getPOST('phone');
-    $address = getPOST('province');
+    $address = getPOST('address');
     $birth_day = getPOST('birthday');
-    $sex = getPOST('sex');
+   
 
-    $sql = "UPDATE users SET name='$name', email='$email', phone_number='$phone_number', address='$address', birth_day='$birth_day', sex='$sex' WHERE id = $user_id";
+    $sql = "UPDATE users SET name='$name', email='$email', phone_number='$phone_number', address='$address', birth_day='$birth_day' WHERE id = $user_id";
 //    execute($sql);
     excuteResult($sql,true);
 
@@ -52,17 +55,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h2 class="text-center text-white pt-5">STAR CLASSES</h2>
               <div class="col-md-4 bg-light p-3 py-3 my-3 rounded-3" >
                   <!--Form-->
-                  <form action="" method="post">
+                  <form action="../../database/auth/updateProfile.php" method="post">
                   <div class="position-relative">
                       <div class="position-absolute top-0 start-0" style="top: -15px; transform: translate(-50%, -50%);">
-                          <a href="#"><i class="bi bi-trash text-danger fs-5"></i></a>
+                          <a href="../../database/auth/deleteProfile.php" onclick="deleteProfile()"><i class="bi bi-trash text-danger fs-5"></i></a>
                       </div>
                       <div class="position-absolute top-0 end-0" style="top: -15px; transform: translate(-50%, -50%);">
-                          <a href="#"><i class="bi bi-box-arrow-in-right text-dark fs-4"></i></a>
+                          <a href="signin.php"><i class="bi bi-box-arrow-in-right text-dark fs-4"></i></a>
                       </div>
                       <!-- Avatar -->
                       <div class="d-flex justify-content-center align-items-center" style="width: 100px; height: 100px; border-radius: 50%;margin-left: 42%;">
-                          <img id="avatar" src="https://i.pinimg.com/564x/79/58/36/79583600e946d44df35077be106c4c21.jpg" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                          <input type="hidden" name="thumbnail">
+                          <img  id="avatar" src="../../public<?=$user['thumbnail']?>" alt="Avatar"  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                           <i id="avatar-edit" class="bi bi-camera fs-4 position-absolute bg-white rounded-5 mt-5" style="
     border-radius: 100%;
     padding: 0;
@@ -96,52 +100,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                               <option value="audi">🇫🇷<p class="opacity-50 ">+262</p></option>
                           </select>
                       </div>
-                      <input placeholder="012 345 6789" type="text" name="phone" id="" class="form-control border-primary" required value="<?php echo $user['phone_number']; ?>">
+                      <input placeholder="012 345 6789" type="text" name="phone" id="" class="form-control border-primary" required value="<?= $user['phone_number']; ?>">
                   </div>
 
 
-                  <!-- Quoc Gia - Tinh Thanh-->
-                  <div class="form-group row mb-3 mt-3">
-                      <div class="col-sm-6">
-                          <label  class="fw-bold" style="font-size: 12px">QUỐC GIA</label>
-                          <!--              <input placeholder="Chọn quốc gia" type="text" name="" id="quocgia" class="form-control border-primary" required>-->
-                          <div class="dropdown bg-white ">
-                              <select name="nation" class="form-select border-primary">
-                                  <option value="vietnam">Viet Nam</option>
-                                  <option value="japan">Japan</option>
-                                  <option value="korea">Korea</option>
-                                  <option value="audi">Italy</option>
-                              </select>
-                          </div>
-                      </div>
-                      <div class="col-sm-6">
-                          <label  class="fw-bold" style="font-size: 12px">TỈNH THÀNH</label>
-                          <!--              <input placeholder="Chọn tỉnh thành" type="text" name="" id="tinhthanh" class="form-control border-primary" required>-->
-                          <div class="dropdown bg-white ">
-                              <select name="province" class="form-select border-primary" value="<?php echo $user['address']; ?>">
-                                  <option value="vietnam">Hai Duong </option>
-                                  <option value="japan">Ha Noi  </option>
-                                  <option value="korea">Cau Giay</option>
-                                  <option value="audi">Thai Binh</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                  <!--date  gioi tinh -->
+                  <!--  Tinh Thanh-->
                   <div class="form-group row mb-3 mt-3">
                       <div class="col-sm-6">
                           <label for="date" class="fw-bold" style="font-size: 12px">NGÀY SINH</label>
-                          <input  type="date" name="birthday" id="date" class="form-control border-primary" required value="<?php echo $user['birth_day']; ?>">
+                          <input  type="date" name="birthday" id="date" class="form-control border-primary" required value="<?= $user['birth_day']; ?>">
                       </div>
                       <div class="col-sm-6">
-                          <label class="fw-bold" style="font-size: 12px">GIỚI TÍNH</label>
-                          <select name="sex" class="form-control border-primary" >
-                              <option value="Male" >Nam</option>
-                              <option value="Female" >Nữ</option>
-                              <option value="Other">Khác</option>
-                          </select>
+                          <label  class="fw-bold" style="font-size: 12px">TỈNH THÀNH</label>
+                          <div class="dropdown bg-white ">
+                              <input type="text" name="address" class="form-control border-primary" value="<?=$user['address']?>">
+                          </div>
                       </div>
                   </div>
+
                   <div class="form-check my-3">
                       <input type="checkbox" class="form-check-input" id="remember">
                       <label class="form-check-label" for="remember">Thay đổi mật khẩu</label>
@@ -152,9 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   </div>
                   <!---->
                   <div class="d-flex justify-content-between mt-3 mb-4">
-                      <button type="submit" class="btn btn-danger" >CẬP NHẬT </button>
+                    <a href="#"><button type="submit" class="btn btn-danger" >CẬP NHẬT</button></a>
                       <div class="mx-2"></div>
-                      <a href="../../views/index.php"><button type="submit" class="btn btn-primary" >TRUY CẬP</button></a>
+                      <a href="../index.php" class="btn btn-primary" >TRUY CẬP</a>
                   </div>
                   </form>
               </div>
@@ -168,6 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../../public/js/header.js"></script>
 <script src="../../public/js/avatar.js"></script>
+<script src="../../public/js/deleteProfile.js"></script>
 
 </body>
 </html>

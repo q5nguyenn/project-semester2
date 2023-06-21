@@ -1,4 +1,16 @@
+<?php
+session_start();
+require_once '../../database/database.php';
 
+// die();
+$error = $email = $password = $remember = '';
+if (isset($_SESSION['error'])) {
+	$error =  $_SESSION['error'];
+	$email =  $_SESSION['email'];
+	unset($_SESSION['error']);
+	unset($_SESSION['email']);
+    echo $error;
+}?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +34,7 @@
                 <h2 class="text-center text-white pt-5">STAR CLASS</h2>
                     <div class="col-md-4 bg-white p-3 py-3 my-3 rounded-3" >
                         <!--form -->
-                        <form action="./control/control_signup.php" method="post">
+                        <form action="../../database/auth/signupController.php" method="post" novalidate>
                         <div class="form-group mb-3 ">
                             <label for="fullname" class="fw-bold" style="font-size: 12px">Họ Tên</label>
                             <input placeholder="Họ Tên" type="text" name="fullname" id="fullname" class="form-control border-primary"  required >
@@ -32,6 +44,9 @@
                             <div class="col-sm-12">
                                 <input placeholder="Email" type="email" name="email" id="email" class="form-control border-primary" required >
                             </div>
+                            <small class="input-item-error text-danger">&nbsp;
+							<?= $error ?>
+						</small>
                         </div>
                         <!-- Example split danger button DROPDOWN-->
                         <label  class="fw-bold" style="font-size: 12px">SỐ ĐIỆN THOẠI</label>

@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c3cf8f-37ca-49da-860e-a0d8e0f6303c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-semester2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/avatar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/auth/profile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/auth/signup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/errors/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/auth/logoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/auth/logoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/auth/signinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/auth/signinController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/searchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/searchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/utility.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/utility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/utility.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/utility.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/control/control_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/control/control_signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/signin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/coursedesc.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/coursedesc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pagesearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/teacher.php" afterDir="false" />
-    </list>
+    <list default="true" id="18c3cf8f-37ca-49da-860e-a0d8e0f6303c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,18 +31,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Applications/XAMPP/xamppfiles/htdocs/project-semester2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs/project-semester2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

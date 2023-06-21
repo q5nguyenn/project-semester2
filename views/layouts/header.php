@@ -7,6 +7,9 @@ if (!empty(checkLogin())) {
 	$user = checkLogin();
 	$sql = "SELECT * FROM carts where user_id = '" . $user['id'] . "'";
 	$carts = excuteResult("SELECT * FROM carts where user_id = '" . $user['id'] . "'");
+	if(empty($carts)) {
+		$carts = [];
+	}
 } else {
 	$carts = [];
 }
@@ -69,7 +72,7 @@ if (!empty(checkLogin())) {
 									<div class="position-absolute bg-white p-1 rounded menu-links shadow-sm" id="user-menu" style="display: none;">
 										<a class="p-2 btn d-block text-start" href="#">Vào học</a>
 										<a class="p-2 btn d-block text-start">Kích hoạt khoá học</a>
-										<a class="p-2 btn d-block text-start">Cập nhật hồ sơ</a>
+										<a class="p-2 btn d-block text-start" href="./auth/profile.php">Cập nhật hồ sơ</a>
 										<a class="p-2 btn d-block text-start" href="./cart.php">Giỏ hàng</a>
 										<a class="p-2 btn d-block text-start border-top" href="../database/auth/logoutController.php">Đăng xuất</a>
 									</div>

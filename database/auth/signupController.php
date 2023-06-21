@@ -1,9 +1,9 @@
 <?php
-session_start();
-include '../../../database/database.php';
-include '../../../database/utility.php';
+include '../database.php';
+include '../utility.php';
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
+session_start();
 
 $fullname = getPOST('fullname');
 $email = getPOST('email');
@@ -20,17 +20,16 @@ if ($password !== $confirm_password) {
 // Kiểm tra xem người dùng đã tồn tại trong cơ sở dữ liệu hay chưa
 $check_sql = "SELECT * FROM users WHERE email = '".$email."'";
 $user = excuteResult($check_sql, true);
-if(is_array($user) && count($user) > 0) {
-    echo "Email đã tồn tại";
-    header('location: '.$_SERVER['HTTP_REFERER']);
+if(!empty($user)) {
+    header('location: ../../views/auth/signup.php');
+    $_SESSION['error'] = 'Email đã tồn tại';
     die();
 }else {
     $sql =" INSERT INTO users ( name, email,  password,   phone_number)
     VALUES ('".$fullname."','".$email."','".$hashedPassword."','".$phone."')";
     excute($sql);
-    header('Location: ../signin.php');
-    $connection = getConnection(); // Tạo kết nối đến cơ sở dữ liệu
-    closeConnection($connection);
+    
+    header('Location: ../../views/auth/signin.php');
     die();
 }
 
