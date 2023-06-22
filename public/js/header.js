@@ -24,6 +24,9 @@ $(document).ready(function () {
   });
 
   $("header").css("height", $("#nav-bar").height());
+<<<<<<< HEAD
 	
 	$('header').css('height', $('#nav-bar').height());
+=======
+>>>>>>> e0944e434fe98ad35072e63f1136210c1be43fe8
 });

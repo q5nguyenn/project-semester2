@@ -1,3 +1,26 @@
+<?php
+session_start();
+include '../database/database.php';
+include '../database/utility.php';
+
+$sql_check = "SELECT courses.*,  AVG(rate) AS star, users.name AS users_name,  users.thumbnail AS users_thumbnail
+FROM `courses`
+JOIN users ON courses.teacher_id = users.id
+LEFT JOIN reviews ON courses.id = reviews.course_id
+GROUP BY id HAVING AVG(rate) >= 1
+ORDER BY id DESC  LIMIT 8";
+
+$querySql = mysqli_query(openConnection(), $sql_check);
+
+$user = checkLogin();
+
+$sql = "Select courses.*, users.name as teacher from carts
+join courses ON courses.id = carts.course_id
+join users ON users.id = courses.teacher_id
+where user_id = " . $user['id'] . " ";
+$carts = excuteResult($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
@@ -12,167 +35,133 @@
 </head>
 
 <body>
-<!-- <header></header> -->
-<header></header>
-<main>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 bg-primary p-4">
-        <div class="start-classes">
-          <ol class="classes">
-            <li class="classes-item active fs-2 text-white">
-              <p>Gio hang (1 khoa hoc)</p>
-            </li>
-          </ol>
-        </div>
-      </div>
-      <!-- -->
 
-      <div class="form-group"></div>
-      <div class="col-md-12">
+  <header>
+    <?php
+    require_once 'layouts/header.php';
+    ?>
+  </header>
+  <!---->
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 bg-primary mt-5" style="height: 100px;">
+          <div class="start-classes classes-item active fs-2 text-white">
+            <p class="text-center mt-3">Gio hang (khoa hoc)</p>
+          </div>
+        </div>
+        <!-- -->
+
         <div class="form-group"></div>
-      </div>
-      <!---->
-      <div class="container " style="height: 19em; background-color: #e8e8e8">
-        <div class="col-md-12 ">
-          <div class="form-group">
-            <p>Đang có ưu đãi
-              <b>Mua 3 tặng 1</b>
-              - Hãy chọn thêm chọn thêm 2 khoá học nữa để nhận 1 khoá học Miễn phí
-            </p>
-            <a href="/donggia" class="hidden"></a>
-          </div>
+        <div class="col-md-12">
+          <div class="form-group"></div>
         </div>
-        <!--Phan hien thi khung -->
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-6">
-            <div class="card mb-3 h-100">
-              <div class="card-body d-flex justify-content-between">
-                <div class="flex-grow-1">
-                  <div class="d-flex mt-5 align-items-between">
-                    <img src="https://i.pinimg.com/564x/46/2d/ae/462dae0eef67d3ff0307550f2019e7f1.jpg" alt="" class="mr-2" style="width: 140px; height: 70px;">
-                    <div class="mt-3">
-                      <h5 class="mb-0">Tên sách</h5>
-                      <p class="text-muted">Tác giả</p>
-<!--                        <h5 class="pf">399,000</h5>-->
-<!--                        <button class="border-0 bg-white"><i class="bi bi-x"></i></button>-->
-                    </div>
-                  </div>
+        <!---->
+        <div class="container " style="height: 19em; background-color: #e8e8e8">
+          <div class="col-md-12 ">
+            <div class="form-group">
+              <p>Đang có ưu đãi
+                <b>Mua 3 tặng 1</b>
+                - Hãy chọn thêm chọn thêm 2 khoá học nữa để nhận 1 khoá học Miễn phí
+              </p>
+              <a href="/donggia" class="hidden"></a>
+            </div>
+          </div>
+          <!--Phan hien thi khung -->
+          <div class="container">
+            <div class="row">
+              <div class="col-9 bg-white shadow-sm p-3">
+                <div class="text-end">
+                  <button class="btn btn-danger">Xoá tất cả</button>
                 </div>
-                <button type="submit" class="btn btn-danger align-self-start">Xoá tất cả</button>
+                <?php
+                foreach ($carts as $cart) {
+                  # code...
+                  echo '<div class="d-flex my-2">
+                    <div>
+                      <img src="https://unica.vn/upload/images/2019/04/khoa-hoc-lam-chu-giong-noi_m_1555570795.jpg" alt="" style="width: 130px;">
+                    </div>
+                    <div class="ps-2 me-auto">
+                      <div class="fw-bold">' . $cart['name'] . '</div>
+                      <div class="text-secondary fs-6">Giảng viên:Trần Thị Thành</div>
+                    </div>
+                    <div>
+                      <div class="fs-4 fw-bold">
+                        <span>399,000</span><sup>đ</sup>
+                      </div>
+                      <div class="text-decoration-line-through text-secondary text-end">
+                        <span>600.000<sup>đ</sup></span>
+                      </div>
+                    </div>
+                    <div class="text-danger fs-4 ps-2 pe-2"><i class="bi bi-x"></i></div>
+                  </div>';
+                }
+                ?>
+              </div>
+              <div class="col-3">
+                <div class="px-3">
+                  <span class="fs-3 fw-bold">399,000<sup>đ</sup></span>
+                  <span class="text-decoration-line-through text-secondary text-end">600.000<sup>đ</sup></span>
+                </div>
+                <div>
+                  <button class="btn btn-warning w-100 fw-bold text-white">THANH TOÁN</button>
+                </div>
               </div>
             </div>
           </div>
-          <!--  -->
-          <div class="col-md-4" >
-            <div class="card border-0" style="background-color: #e8e8e8">
-              <div class="card-body d-flex flex-column justify-content-between">
-                <h5 class="card-title fs-3 text-danger">399.000</h5>
-                <p class="product-price"><del>700,000đ</del></p>
-                <a href="#" class="btn btn-warning w-50 text-white fw-bold">THANH TOÁN</a>
-              </div>
+          <!-- Tìm kiếm khoá học -->
+          <div class="row">
+            <div class="col-sm-6 mt-4" style="margin-left: 112px;">
+              <form action="../database/auth/searchCart.php" method="post" class="d-flex">
+                <input placeholder="Tìm kiếm khoá học" type="text" name="search" id="khoahoc" class="form-control border-primary me-2" required>
+                <button class="btn btn-primary" type="submit" name="btn">Search</button>
+              </form>
             </div>
-          </div>
-          <!--  -->
-          <div class="col-sm-6 mt-3" style="margin-right: 30em">
-            <label for="khoahoc" class="fw-bold text-primary" style="font-size: 12px">Chọn thêm khoá học</label>
-            <input placeholder="Tìm kiếm khoá học" type="text" name="" id="khoahoc" class="form-control border-primary" required>
           </div>
         </div>
       </div>
-<!-- Phần danh sách xem thêm-->
+      <!-- Phần danh sách xem thêm-->
       <div class="container">
         <div class="row d-flex justify-content-center">
           <div class="col-md-10">
             <div class="text-black">
               <h3>Thường được mua cùng</h3>
             </div>
-            <swiper-container class="mySwiper" pagination="true" navigation="true" pagination-clickable="true" slides-per-view="5"
-                              space-between="30" free-mode="true"   >
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body " >
-                  <div class="mt-4 border-secondary mx-auto ">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+            <swiper-container class="mySwiper" pagination="true" navigation="true" pagination-clickable="true" slides-per-view="4" space-between="30" free-mode="true">
+              <?php
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+              while ($arrSql = mysqli_fetch_array($querySql)) {
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+              ?>
+                <swiper-slide>
+                  <div class="card  mb-5 bg-body " onmouseover="this.style.border='1px solid #CC99FF'; this.style.boxShadow='0 0 20px #CC99FF';" onmouseout="this.style.border='none'; this.style.boxShadow='none';">
+                    <div class=" border-secondary mx-auto">
+                      <img src="../public<?= $arrSql['thumbnail'] ?>" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="card-body d-flex flex-column  " style="height: 130px;">
+                      <div class="mb-2 h-25">
+                        <a href="" class="text-decoration-none text-black fw-bold " style="color: #273167;font-size: 15px;"><?= $arrSql['name'] ?></a>
+                      </div>
+                      <div class="row mt-2" style=" font-size: 12px;">
+                        <div class="col-8 float-left">
+                          <p class="card-text mt-2 "><?= $arrSql['users_name'] ?></p>
+                        </div>
+                        <div class="col-4 float-end " style="font-size: 15px;"><span><del><?= $arrSql['price'] ?> <sup>đ</sup></del></span></div>
+                      </div>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
+                      <div class="row d-flex ">
+                        <div class="col-6 text-warning float-left" style=" font-size: 12px;">
+                          <?= showStarRate($arrSql['star']) ?>
+                        </div>
+                        <div class="col-6 float-end" style="font-size: 15px;"><span><b style="margin-left: 38px"><?= $arrSql['discount'] ?> <sup>đ</sup></b></span></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
+                </swiper-slide>
+              <?php
+              }
+              ?>
 
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
-
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
-
-              <swiper-slide>
-                <div class="card shadow mb-5 bg-body rounded">
-                  <div class="mt-4 border-secondary mx-auto">
-                    <img src="/public/images/center-hanoi.jpg" class="card-img-top p-1 border" alt="nguyen-phung-phong_thumb.jpeg" style="width: 100%; height: 100%;">
-                  </div>
-                  <div class="card-body d-flex flex-column align-items-center mt-3" style="height: 200px;">
-                    <a href="" class="text-decoration-none text-black fw-bold mb-3" style="color: #273167;font-size: 20px;">Đặng Trọng Khang</a>
-                    <p class="card-text text-center mt-2 mb-5">Causality Investing Speaker</p>
-                  </div>
-                </div>
-              </swiper-slide>
-            </swiper-container>
           </div>
         </div>
 
@@ -180,14 +169,19 @@
 
     </div>
     </div>
-  </div>
-</main>
-<!--  -->
-<footer></footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    </div>
+  </main>
+  <!--  -->
+  <footer>
+    <?php
+    require_once 'layouts/footer.php'
+    ?>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 
-<script src="public/js/header.js"></script>
+  <script src="public/js/header.js"></script>
 
 </body>
+
 </html>
