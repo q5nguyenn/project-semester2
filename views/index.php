@@ -1,5 +1,6 @@
 <?php
 session_start();
+$base_url = '';
 require_once('../database/database.php');
 ?>
 
@@ -32,7 +33,7 @@ require_once('../database/database.php');
 	?>
 	<!-- Footer End -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="../public/js/header.js"></script>
+	<script src="<?= asset('public/js/header.js') ?>"></script>
 </body>
 
 </html>

@@ -25,3 +25,9 @@ function percent($a, $b)
 {
 	return round(($b - $a) / $b, 2) * 100;
 }
+
+
+function asset($path)
+{
+	return BASE_URL . $path;
+}
