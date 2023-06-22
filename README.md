@@ -28,10 +28,10 @@
 ---
 | Tên | Nội dung công việc | File name | Chưa làm |Đang làm | Đã xong |Ghi chú|
 | -   | -                  | -         | -          | -|-| -|
-| Hiếu| Trang chủ| index.php| ✅ |  |  | |
-|  | Tìm kiếm| search.php| ✅ |  |  | |
-|  | Khoa| faculty.php| ✅ |  |  | |
-|  | Bộ môn| department.php| ✅ |  |  | |
+| Hiếu| Trang chủ| index.php| |  |  ✅ | |
+|  | Tìm kiếm| search.php|  |  | ✅ | còn phân trang |
+|  | Khoa| faculty.php|  |  | ✅ | còn phân trang |
+|  | Bộ môn| department.php|  |  | ✅ | còn phân trang |
 | Tuấn Anh| Chi tiết khoá học| coursedesc.php|  | ✅ |  | |
 | | About us| about-us.php|  |  | ✅ | |
 | | Điều khoản| terms.php| |  |  ✅ | |
