@@ -35,10 +35,10 @@
 | Tuấn Anh| Chi tiết khoá học| coursedesc.php|  | ✅ |  | |
 | | About us| about-us.php|  |  | ✅ | |
 | | Điều khoản| terms.php| |  |  ✅ | |
-| Thành| Đăng nhập| signin.php|  |  |  |✅|
-| | Đăng kí| signup.php|  |  |  |✅|
+| Thành| Đăng nhập| signin.php|  |  |✅ ||
+| | Đăng kí| signup.php|  |  | ✅ ||
 | | Hồ sơ| profile.php| |  | ✅| |
-| | Giỏ hàng| cart.php||  |  ✅  | |
+| | Giỏ hàng| cart.php|| ✅ |  | |
 | Phước| Profile| dashboard.php| ✅ |  |  | |
 | | Kích hoạt mã| active-code.php| ✅ |  |  | |
 | | Thông báo| notification.php| ✅ |  |  | |
