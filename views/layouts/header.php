@@ -33,7 +33,7 @@ if (!empty(checkLogin())) {
 						style="display:none; width:200px">';
 						foreach ($departments as $department) {
 							if ($faculty['id'] == $department['faculty_id']) {
-								echo '<div class="p-2 btn w-100 text-start">' . $department['name'] . '</div>';
+								echo '<a href="project-semester2/views/department.php?id='. $department['name'] .'" class="p-2 btn w-100 text-start">' . $department['name'] . '</a>';
 							}
 						}
 						echo '</div>';
@@ -46,6 +46,8 @@ if (!empty(checkLogin())) {
 					<input class="form-control me-2" type="text" placeholder="Search" name="keyword">
 					<i class="bi bi-search position-absolute top-50 end-0 translate-middle btn p-0 pe-2"></i>
 				</form>
+
+
 			</div>
 			<div class="position-relative">
 				<a href="<?= !empty(checkLogin()) ? 'cart.php' : 'auth/signin.php' ?>" class="btn btn-light"><i class="bi bi-bag"></i></a>
