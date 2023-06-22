@@ -43,7 +43,7 @@
 | | Kích hoạt mã| active-code.php| ✅ |  |  | |
 | | Thông báo| notification.php| ✅ |  |  | |
 |Quý|Giảng viên|teacher.php|  |  | ✅ | |
-| |Header|header.php|  | ✅ |  | |
+| |Header|header.php|  |  | ✅ | |
 | |Footer|footer.php|  |  | ✅ | |
 ||Checkout|checkout/step[1, 2, 3].php| ✅ |  |  | |
 ---
