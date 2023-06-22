@@ -26,12 +26,19 @@
 
 .d-flex.align-items-center.u-hot-cate .list-unstyled li{
     float: left;
-    margin: 0px 15px;
+    margin: 0px 10px;
 }
 
 .d-flex.align-items-center.u-hot-cate .list-unstyled li a{
     color: #777;
     font-size: 14px;
+}
+
+
+.option-view .option-view__filter{
+    display: none;
+    border: none;
+    background-color: unset;
 }
 
 .view-option{

@@ -56,13 +56,18 @@ if (!empty(checkLogin())) {
 					<input class="form-control me-2" type="text" placeholder="Search" name="keyword">
 					<i class="bi bi-search position-absolute top-50 end-0 translate-middle btn p-0 pe-2"></i>
 				</form>
+
+
 			</div>
 			<div class="position-relative">
 				<a href="<?= !empty(checkLogin()) ? asset('views/cart.php') : asset('views/auth/signin.php') ?>" class="btn btn-light"><i class="bi bi-bag"></i></a>
 				<?php if (!empty(checkLogin())) {
-					echo '<span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:5px; right: -15px">
-									' . count($carts) . '
-								</span>';
+					if (!empty($carts)) {
+
+						echo '<span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:5px; right: -15px">
+						' . count($carts) . '
+						</span>';
+					}
 				} ?>
 
 			</div>

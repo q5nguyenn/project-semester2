@@ -52,7 +52,13 @@ WHERE teacher_id = '$id'", true)
 						<div cl>Khoá học</div>
 					</div>
 					<div class="text-center ms-3">
-						<div class="fw-bold fs-1"><?= count($bills) ?></div>
+						<div class="fw-bold fs-1">
+							<?php if (!empty($bills)) {
+								echo count($bills);
+							} else {
+								echo "0";
+							}
+							?></div>
 						<div cl>Học viên</div>
 					</div>
 					<div class="text-center ms-3">
@@ -86,56 +92,59 @@ WHERE teacher_id = '$id'", true)
 		<div class="container">
 			<div class="fw-bold fs-5 pb-2">Khoá học của giảng viên <?= $teacher['name'] ?></div>
 			<?php
-			foreach ($courses as $course) {
-				echo '<div class="p-2 bg-white d-flex shadow-sm my-3">
-								<div class="me-3" style="height: 200px;">
-									<img class="img-fluid" src="../public' . $course['thumbnail'] . '" alt="">
-								</div>
-								<div class="flex-fill">
-									<div class="fw-bold">' . $course['name'] . '</div>
-									<div class="my-1">
-										<span><i class="bi bi-file-earmark-word"></i> 22 Bài giảng</span>
-										<span><i class="bi bi-clock"></i> 02 giờ 02 phút</span>
+			if (!empty($courses)) {
+				foreach ($courses as $course) {
+					echo '<div class="p-2 bg-white d-flex shadow-sm my-3">
+									<div class="me-3" style="height: 200px;">
+										<img class="img-fluid" src="../public' . $course['thumbnail'] . '" alt="">
 									</div>
-									<div class="my-1">
-										<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
-											dụng
-											trong đàm
-											phán</span>
+									<div class="flex-fill">
+										<div class="fw-bold">' . $course['name'] . '</div>
+										<div class="my-1">
+											<span><i class="bi bi-file-earmark-word"></i> 22 Bài giảng</span>
+											<span><i class="bi bi-clock"></i> 02 giờ 02 phút</span>
+										</div>
+										<div class="my-1">
+											<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
+												dụng
+												trong đàm
+												phán</span>
+										</div>
+										<div class="my-1">
+											<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
+												dụng
+												trong đàm
+												phán</span>
+										</div>
+										<div class="my-1">
+											<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
+												dụng
+												trong đàm
+												phán</span>
+										</div>
+										<div class="my-1">
+											<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
+												dụng
+												trong đàm
+												phán</span>
+										</div>
+										<div class="my-1">
+											<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
+												dụng
+												trong đàm
+												phán</span>
+										</div>
 									</div>
-									<div class="my-1">
-										<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
-											dụng
-											trong đàm
-											phán</span>
+									<div>
+										<div class="fw-bold fs-2">' . $course['discount'] . '<span class="fs-6">$</span></div>
+										<div class="fs-2"><del>' . $course['price'] . '</del><span class="fs-6">$</span></div>
+										<div class="fs-6 fw-bold text-end">OFF ' . percent($course['discount'], $course['price']) . '%</div>
+										<div class="text-end"><a href="coursedesc.php?id=' . $course['id'] . '" class="btn btn-danger px-5">CHI TIẾT</a></div>
 									</div>
-									<div class="my-1">
-										<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
-											dụng
-											trong đàm
-											phán</span>
-									</div>
-									<div class="my-1">
-										<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
-											dụng
-											trong đàm
-											phán</span>
-									</div>
-									<div class="my-1">
-										<i class="bi bi-chevron-right text-primary fw-bold"></i> <span>Nắm được 1000 từ vựng và cụm từ tiếng Anh sử
-											dụng
-											trong đàm
-											phán</span>
-									</div>
-								</div>
-								<div>
-									<div class="fw-bold fs-2">' . $course['discount'] . '<span class="fs-6">$</span></div>
-									<div class="fs-2"><del>' . $course['price'] . '</del><span class="fs-6">$</span></div>
-									<div class="fs-6 fw-bold text-end">OFF ' . percent($course['discount'], $course['price']) . '%</div>
-									<div class="text-end"><a href="coursedesc.php?id=' . $course['id'] . '" class="btn btn-danger px-5">CHI TIẾT</a></div>
-								</div>
-							</div>';
+								</div>';
+				}
 			}
+
 			?>
 		</div>
 	</main>
