@@ -9,7 +9,7 @@
 |  | Tìm kiếm| search.html|  |  | ✅ | |
 |  | Khoa| faculty.html|  |  | ✅ | |
 |  | Bộ môn| department.html|  |  | ✅ | |
-| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  | ✅ | |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  |  |✅|
 | | About us| about-us.html|  |  |  ✅| |
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
