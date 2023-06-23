@@ -444,7 +444,7 @@ $newUser = excuteResult($sql);
                 </div>
               </div>
               <div>
-                <a href="#"><button class="w-100 p-3 fw-bold my-2 btn btn-danger">
+                <a href="auth/signup.php"><button class="w-100 p-3 fw-bold my-2 btn btn-danger">
                     ĐĂNG KÍ NGAY
                   </button></a>
                 <a href="../database/cartController.php?id=<?= $id ?>" class="w-100 p-3 fw-bold my-1 btn btn-success 
@@ -498,9 +498,9 @@ $newUser = excuteResult($sql);
               Classes bất ký lúc nào, bất kỳ đâu
             </div>
             <div class="my-2">
-              <button type="button" class="w-100 btn btn-light btn btn-outline-secondary fw-bold text-dark" style="border-radius: 15px">
-                Đăng ký tư vấn
-              </button>
+              <a href="auth/signup.php"><button type="button" class="w-100 btn btn-light btn btn-outline-secondary fw-bold text-dark" style="border-radius: 15px">
+                  Đăng ký tư vấn
+                </button></a>
             </div>
           </div>
         </div>
