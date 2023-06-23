@@ -4,11 +4,13 @@ include '../database/database.php';
 include '../database/utility.php';
 $id = getGET('id');
 
+
 // if (isset($_POST['wishlist'])) {
 //   $wishlist = $_POST['wishlist'];
 // }
 
-$sql = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail, departments.name as department_name,faculties.name as faculty_name FROM `courses`
+$sql = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail, departments.name as department_name,faculties.name as faculty_name
+ FROM `courses`
 JOIN users ON courses.teacher_id = users.id 
 JOIN departments ON courses.department_id = departments.id 
 JOIN faculties ON departments.faculty_id = faculties.id
@@ -22,7 +24,21 @@ JOIN users on reviews.user_id = users.id
 where courses.id = ' . $id . '
 ';
 $reviews = excuteResult($sql_reviews);
+$user = checkLogin();
+if (!empty($user)) {
+  $sql_checkCart = "SELECT * FROM `carts` WHERE user_id = '" . $user['id'] . "' and course_id = $id";
+  $courseInCart = excuteResult($sql_checkCart);
+}
+$allowAddCart = true;
+if (!empty($courseInCart)) {
+  $allowAddCart = false;
+}
+
+$sql = "SELECT users.* FROM `bills` join users on users.id = bills.user_id
+ORDER BY bills.created_at LIMIT 5";
+$newUser = excuteResult($sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +50,7 @@ $reviews = excuteResult($sql_reviews);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="../public/css/header.css" />
+  <!-- <link rel="stylesheet" href="../public/css/style.css" /> -->
 </head>
 
 <body>
@@ -72,9 +89,9 @@ $reviews = excuteResult($sql_reviews);
                 <img class="rounded-circle" src="../public/<?php
                                                             echo $courses['teacher_thumbnail']
                                                             ?>" alt="" style="width: 30px" />
-                <a class="text-decoration-none text-white" href="#"><?php
-                                                                    echo $courses['teacher_name']
-                                                                    ?></a>
+                <a class="text-decoration-none text-white" href="teacher.php?id=<?= $courses['teacher_id'] ?>"><?php
+                                                                                                                echo $courses['teacher_name']
+                                                                                                                ?></a>
               </div>
               <div class="col text-warning">
                 <i class="bi bi-star-fill"></i>
@@ -88,8 +105,8 @@ $reviews = excuteResult($sql_reviews);
                 <i class="bi bi-people-fill"></i>
                 <span>8081 hoc vien</span>
               </div>
-              <div class="d-flex align-items-center col rounded-circle bg-light flex-grow-0" style="width: 40px; height: 40px">
-                <i class="bi bi-heart-fill text-danger"></i>
+              <div class="d-flex align-items-center col rounded-circle bg-light flex-grow-0 main-like" style="width: 40px; height: 40px">
+                <i class="bi bi-heart-fill text-muted like_cart"></i>
               </div>
             </div>
           </div>
@@ -180,67 +197,71 @@ $reviews = excuteResult($sql_reviews);
             <div class="fs-4 fw-bold border-bottom pb-2 mb-3">
               Nội dung khóa học
             </div>
-            <div>
+            <div class="parent-section">
               <i class="bi bi-dash-square"></i>
               <span class="fw-bold">Phần 1: Khởi động</span>
             </div>
-            <div class="row border-bottom py-2" style="cursor: pointer">
-              <div class="col-9">
-                <i class="bi bi-play-circle-fill text-secondary"></i>
-                <span>Bài 1: Giới thiệu chung về khóa học</span>
+            <div class="child-section">
+              <div class="row border-bottom py-2" style="cursor: pointer">
+                <div class="col-9">
+                  <i class="bi bi-play-circle-fill text-secondary"></i>
+                  <span>Bài 1: Giới thiệu chung về khóa học</span>
+                </div>
+                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-1">02:55</div>
               </div>
-              <div class="col-2 text-primary">Học thử</div>
-              <div class="col-1">02:55</div>
-            </div>
-            <div class="row border-bottom py-2">
-              <div class="col-9">
-                <i class="bi bi-play-circle-fill text-secondary"></i>
-                <span>Bài 1: Giới thiệu chung về khóa học</span>
+              <div class="row border-bottom py-2">
+                <div class="col-9">
+                  <i class="bi bi-play-circle-fill text-secondary"></i>
+                  <span>Bài 1: Giới thiệu chung về khóa học</span>
+                </div>
+                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-1">02:55</div>
               </div>
-              <div class="col-2 text-primary">Học thử</div>
-              <div class="col-1">02:55</div>
-            </div>
-            <div class="row border-bottom py-2">
-              <div class="col-9">
-                <i class="bi bi-play-circle-fill text-secondary"></i>
-                <span>Bài 1: Giới thiệu chung về khóa học</span>
+              <div class="row border-bottom py-2">
+                <div class="col-9">
+                  <i class="bi bi-play-circle-fill text-secondary"></i>
+                  <span>Bài 1: Giới thiệu chung về khóa học</span>
+                </div>
+                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-1">02:55</div>
               </div>
-              <div class="col-2 text-primary">Học thử</div>
-              <div class="col-1">02:55</div>
             </div>
-            <div class="mt-3">
+            <div class="mt-3 parent-section">
               <i class="bi bi-dash-square"></i>
               <span class="fw-bold">Phần 2: Thực hành</span>
             </div>
-            <div class="row border-bottom py-2">
-              <div class="col-9">
-                <i class="bi bi-play-circle-fill text-secondary"></i>
-                <span>Bài 1: Giới thiệu chung về khóa học</span>
+            <div class="child-section">
+              <div class="row border-bottom py-2">
+                <div class="col-9">
+                  <i class="bi bi-play-circle-fill text-secondary"></i>
+                  <span>Bài 1: Giới thiệu chung về khóa học</span>
+                </div>
+                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-1">02:55</div>
               </div>
-              <div class="col-2 text-primary">Học thử</div>
-              <div class="col-1">02:55</div>
-            </div>
-            <div class="row border-bottom py-2">
-              <div class="col-9">
-                <i class="bi bi-play-circle-fill text-secondary"></i>
-                <span>Bài 1: Giới thiệu chung về khóa học</span>
+              <div class="row border-bottom py-2">
+                <div class="col-9">
+                  <i class="bi bi-play-circle-fill text-secondary"></i>
+                  <span>Bài 1: Giới thiệu chung về khóa học</span>
+                </div>
+                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-1">02:55</div>
               </div>
-              <div class="col-2 text-primary">Học thử</div>
-              <div class="col-1">02:55</div>
-            </div>
-            <div class="row border-bottom py-2">
-              <div class="col-9">
-                <i class="bi bi-play-circle-fill text-secondary"></i>
-                <span>Bài 1: Giới thiệu chung về khóa học</span>
+              <div class="row border-bottom py-2">
+                <div class="col-9">
+                  <i class="bi bi-play-circle-fill text-secondary"></i>
+                  <span>Bài 1: Giới thiệu chung về khóa học</span>
+                </div>
+                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-1">02:55</div>
               </div>
-              <div class="col-2 text-primary">Học thử</div>
-              <div class="col-1">02:55</div>
             </div>
           </div>
           <div>
             Tags:
-            <span class="badge bg-secondary me-2 btn">Guitar</span>
-            <span class="badge bg-secondary btn">Nhac cụ</span>
+            <span class="badge bg-secondary me-2 btn"><?= $courses['faculty_name'] ?></span>
+            <span class="badge bg-secondary btn"> <?= $courses['department_name'] ?></span>
           </div>
           <div class="shadow-sm p-3 my-3">
             <div class="fs-4 fw-bold border-bottom pb-2">
@@ -273,8 +294,8 @@ $reviews = excuteResult($sql_reviews);
                 </div>
               </div>
               <form action="" method="post">
-                <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                  <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+                <div class="d-flex justify-content-center align-items-center like col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
+                  <i class="bi bi-heart text-info" id="like_cart_01" style="cursor: pointer"></i>
                 </div>
               </form>
             </div>
@@ -304,8 +325,8 @@ $reviews = excuteResult($sql_reviews);
                   <span>880,000</span><sup>đ</sup>
                 </div>
               </div>
-              <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+              <div class="d-flex justify-content-center align-items-center like col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
+                <i class="bi bi-heart text-info" id="like_cart_02" style="cursor: pointer"></i>
               </div>
             </div>
             <div class="my-2 d-flex border-bottom">
@@ -334,8 +355,8 @@ $reviews = excuteResult($sql_reviews);
                   <span>880,000</span><sup>đ</sup>
                 </div>
               </div>
-              <div class="d-flex justify-content-center align-items-center col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
-                <i class="bi bi-heart text-info" style="cursor: pointer"></i>
+              <div class="d-flex justify-content-center align-items-center like col-1 my-3 rounded-circle flex-grow-0 flex-shrink-0 border border-info" style="width: 40px; height: 40px">
+                <i class="bi bi-heart text-info" id="like_cart_03" style="cursor: pointer"></i>
               </div>
             </div>
 
@@ -367,9 +388,9 @@ $reviews = excuteResult($sql_reviews);
                   sunt ad, tempora aspernatur ex animi corrupti provident
                   aliquid cumque illo minima iure molestiae.
                 </div>
-                <button class="w-100 btn btn-outline-info p-2 fs-6">
+                <a href="teacher.php?id=<?= $courses['teacher_id'] ?>" class="w-100 btn btn-outline-info p-2 fs-6">
                   Xem thêm
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -378,45 +399,27 @@ $reviews = excuteResult($sql_reviews);
               Nhận xét của học viên
             </div>
             <?php
-            foreach ($reviews as $review) {
-              echo '<div class="row border-bottom">
-                        <div class="col-2">
-                          <img src="../public/' . $review['avatar'] . '" alt="" class="rounded-circle my-2" style="width: 80px" />
-                        </div>
-                        <div class="col-10">
-                          <div class="my-2 d-flex">
-                            <div class="text-warning">
-                              ' . showStarRate($review['rate']) . '
+            if (!empty($reviews)) {
+              foreach ($reviews as $review) {
+                echo '<div class="row border-bottom">
+                          <div class="col-2">
+                            <img src="../public/' . $review['avatar'] . '" alt="" class="rounded-circle my-2" style="width: 80px" />
+                          </div>
+                          <div class="col-10">
+                            <div class="my-2 d-flex">
+                              <div class="text-warning">
+                                ' . showStarRate($review['rate']) . '
+                              </div>
+                              <span style="margin-left: 20px" class="fw-bold">' . $review['name'] . '</span>
                             </div>
-                            <span style="margin-left: 20px" class="fw-bold">' . $review['name'] . '</span>
+                            <div class="my-3">
+                            ' . $review['content'] . '
+                            </div>
                           </div>
-                          <div class="my-3">
-                          ' . $review['content'] . '
-                          </div>
-                        </div>
-                      </div>';
+                        </div>';
+              }
             }
             ?>
-            <!-- <div class="row">
-              <div class="col-2">
-                <img src="../public/images/70e565ff687043e10e150e23d0ae5ea2.avif" alt="" class="rounded-circle my-2" style="width: 80px" />
-              </div>
-              <div class="col-10">
-                <div class="my-2 d-flex">
-                  <div class="text-warning">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <span style="margin-left: 20px">Nguyễn Quang Thành</span>
-                </div>
-                <div class="my-3">
-                  Anh Tú dạy rất dễ hiểu, tương tác rồi nha anh :)
-                </div>
-              </div>
-            </div> -->
             <button class="d-flex justify-content-between fw-bold border border-0 p-2 mx-auto mt-2">
               Xem thêm
             </button>
@@ -444,11 +447,12 @@ $reviews = excuteResult($sql_reviews);
                 <a href="#"><button class="w-100 p-3 fw-bold my-2 btn btn-danger">
                     ĐĂNG KÍ NGAY
                   </button></a>
-                <a href="#"><button class="w-100 p-3 fw-bold my-1 btn btn-success">
-                    <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
-                  </button></a>
+                <a href="../database/cart/insert.php?id=<?= $id ?>" class="w-100 p-3 fw-bold my-1 btn btn-success
+                <?= (!$allowAddCart) ? 'disabled' : '' ?>">
+                  <i class=" bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                </a>
                 <div class="text-center my-3">
-                  <i class="bi bi-person-plus-fill"></i><span>Bui Levu vừa đăng ký</span>
+                  <i class="bi bi-person-plus-fill"></i><span id="newUser"><?php echo 1 ?> vừa đăng ký</span>
                 </div>
               </div>
               <div class="my-3">
@@ -503,15 +507,35 @@ $reviews = excuteResult($sql_reviews);
       </div>
     </div>
   </main>
+  <!--Footer Start-->
   <?php
-  // Footer Start
   require_once 'layouts/footer.php';
   ?>
   <!-- Footer End -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../public/js/header.js"></script>
   <script src="../public/js/utility.js"></script>
-
+  <script>
+    var element = document.getElementsByClassName('like_cart');
+    $('.main-like').click(function(e) {
+      e.preventDefault();
+      $(this).find('i').toggleClass('text-muted');
+      $(this).find('i').toggleClass('text-danger');
+    });
+    $('.like').click(function(e) {
+      e.preventDefault();
+      $(this).toggleClass('border-info');
+      $(this).toggleClass('border-danger');
+      $(this).find('i').toggleClass('text-info');
+      $(this).find('i').toggleClass('text-danger');
+    });
+    $('.parent-section').click(function(e) {
+      e.preventDefault();
+      $(this).next().toggle(300);
+    });
+    // });
+  </script>
 </body>
+
 
 </html>

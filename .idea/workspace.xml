@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c3cf8f-37ca-49da-860e-a0d8e0f6303c" name="Changes" comment="" />
+    <list default="true" id="18c3cf8f-37ca-49da-860e-a0d8e0f6303c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/database/cart/delete.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/cart/deleteAll.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/cart/insert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/coursedesc.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/about-us.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/terms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/auth/searchCart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/utility.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/utility.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/about-us.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth/profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth/signin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth/signup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/coursedesc.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/coursedesc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/term.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,28 +52,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs/project-semester2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/XAMPP/xamppfiles/htdocs/project-semester2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/cart" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5fca4848-32b9-4c46-bc85-11c3372117ff" name="Changes" comment="" />
+      <changelist id="18c3cf8f-37ca-49da-860e-a0d8e0f6303c" name="Changes" comment="" />
       <created>1686671751932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686671751932</updated>
       <workItem from="1686671754237" duration="33223000" />
+      <workItem from="1687422429616" duration="8558000" />
     </task>
     <servers />
   </component>

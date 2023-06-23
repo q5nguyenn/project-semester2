@@ -32,9 +32,9 @@
 |  | Tìm kiếm| search.php| ✅ |  |  | |
 |  | Khoa| faculty.php| ✅ |  |  | |
 |  | Bộ môn| department.php| ✅ |  |  | |
-| Tuấn Anh| Chi tiết khoá học| coursedesc.php| ✅ |  |  | |
-| | About us| about-us.php| ✅ |  |  | |
-| | Điều khoản| terms.php| ✅ |  |  | |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.php|  | ✅ |  | |
+| | About us| about-us.php|  |  | ✅ | |
+| | Điều khoản| terms.php| |  |  ✅ | |
 | Thành| Đăng nhập| signin.php| ✅ |  |  | |
 | | Đăng kí| signup.php| ✅ |  |  | |
 | | Hồ sơ| profile.php| ✅ |  |  | |
