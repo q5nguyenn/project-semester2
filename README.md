@@ -9,7 +9,7 @@
 |  | Tìm kiếm| search.html|  |  | ✅ | |
 |  | Khoa| faculty.html|  |  | ✅ | |
 |  | Bộ môn| department.html|  |  | ✅ | |
-| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  |  |✅|
+| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  |✅  ||
 | | About us| about-us.html|  |  |  ✅| |
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
@@ -32,7 +32,7 @@
 |  | Tìm kiếm| search.php|  |  | ✅ | còn phân trang |
 |  | Khoa| faculty.php|  |  | ✅ | còn phân trang |
 |  | Bộ môn| department.php|  |  | ✅ | còn phân trang |
-| Tuấn Anh| Chi tiết khoá học| coursedesc.php|  | ✅ |  | |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.php|  |  | ✅  ||
 | | About us| about-us.php|  |  | ✅ | |
 | | Điều khoản| terms.php| |  |  ✅ | |
 | Thành| Đăng nhập| signin.php|  |  |✅ ||
