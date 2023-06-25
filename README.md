@@ -9,7 +9,7 @@
 |  | Tìm kiếm| search.html|  |  | ✅ | |
 |  | Khoa| faculty.html|  |  | ✅ | |
 |  | Bộ môn| department.html|  |  | ✅ | |
-| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  | ✅ | |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.html|  |  |✅  ||
 | | About us| about-us.html|  |  |  ✅| |
 | | Điều khoản| terms.html|  |  | ✅ | |
 | Thành| Đăng nhập| signin.html|  |  | ✅ | |
@@ -28,22 +28,22 @@
 ---
 | Tên | Nội dung công việc | File name | Chưa làm |Đang làm | Đã xong |Ghi chú|
 | -   | -                  | -         | -          | -|-| -|
-| Hiếu| Trang chủ| index.php| ✅ |  |  | |
-|  | Tìm kiếm| search.php| ✅ |  |  | |
-|  | Khoa| faculty.php| ✅ |  |  | |
-|  | Bộ môn| department.php| ✅ |  |  | |
-| Tuấn Anh| Chi tiết khoá học| coursedesc.php|  | ✅ |  | |
+| Hiếu| Trang chủ| index.php| |  |  ✅ | |
+|  | Tìm kiếm| search.php|  |  | ✅ | còn phân trang |
+|  | Khoa| faculty.php|  |  | ✅ | còn phân trang |
+|  | Bộ môn| department.php|  |  | ✅ | còn phân trang |
+| Tuấn Anh| Chi tiết khoá học| coursedesc.php|  |  | ✅  ||
 | | About us| about-us.php|  |  | ✅ | |
 | | Điều khoản| terms.php| |  |  ✅ | |
-| Thành| Đăng nhập| signin.php| ✅ |  |  | |
-| | Đăng kí| signup.php| ✅ |  |  | |
-| | Hồ sơ| profile.php| ✅ |  |  | |
-| | Giỏ hàng| cart.php| ✅ |  |  | |
+| Thành| Đăng nhập| signin.php|  |  |✅ ||
+| | Đăng kí| signup.php|  |  | ✅ ||
+| | Hồ sơ| profile.php| |  | ✅| |
+| | Giỏ hàng| cart.php|| ✅ |  | |
 | Phước| Profile| dashboard.php| ✅ |  |  | |
 | | Kích hoạt mã| active-code.php| ✅ |  |  | |
 | | Thông báo| notification.php| ✅ |  |  | |
 |Quý|Giảng viên|teacher.php|  |  | ✅ | |
-| |Header|header.php|  | ✅ |  | |
+| |Header|header.php|  |  | ✅ | |
 | |Footer|footer.php|  |  | ✅ | |
-||Checkout|checkout/step[1, 2, 3].php| ✅ |  |  | |
+||Checkout|checkout/step[1, 2, 3].php|  |  | ✅ | |
 ---
