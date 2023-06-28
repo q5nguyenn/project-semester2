@@ -39,12 +39,15 @@ $sql = "SELECT users.* FROM `bills` join users on users.id = bills.user_id
 ORDER BY bills.created_at LIMIT 5";
 $newUser = excuteResult($sql);
 
-$sql = "SELECT * FROM `wishlists` WHERE course_id ='" . $id . "' AND user_id ='" . $user['id'] . "'";
-$wishlist = excuteResult($sql, true);
-$like = false;
-if (!empty($wishlist)) {
-  $like = true;
+if (!empty($user)) {
+  $sql = "SELECT * FROM `wishlists` WHERE course_id ='" . $id . "' AND user_id ='" . $user['id'] . "'";
+  $wishlist = excuteResult($sql, true);
+  $like = false;
+  if (!empty($wishlist)) {
+    $like = true;
+  }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -216,7 +219,7 @@ if (!empty($wishlist)) {
                   <i class="bi bi-play-circle-fill text-secondary"></i>
                   <span>Bài 1: Giới thiệu chung về khóa học</span>
                 </div>
-                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-2 text-primary"><a href="https://youtu.be/jfKfPfyJRdk">Học thử</a></div>
                 <div class="col-1">02:55</div>
               </div>
               <div class="row border-bottom py-2">
@@ -224,7 +227,7 @@ if (!empty($wishlist)) {
                   <i class="bi bi-play-circle-fill text-secondary"></i>
                   <span>Bài 1: Giới thiệu chung về khóa học</span>
                 </div>
-                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-2 text-primary"><a href="https://youtu.be/jfKfPfyJRdk">Học thử</a></div>
                 <div class="col-1">02:55</div>
               </div>
               <div class="row border-bottom py-2">
@@ -232,7 +235,7 @@ if (!empty($wishlist)) {
                   <i class="bi bi-play-circle-fill text-secondary"></i>
                   <span>Bài 1: Giới thiệu chung về khóa học</span>
                 </div>
-                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-2 text-primary"><a href="https://youtu.be/jfKfPfyJRdk">Học thử</a></div>
                 <div class="col-1">02:55</div>
               </div>
             </div>
@@ -246,7 +249,7 @@ if (!empty($wishlist)) {
                   <i class="bi bi-play-circle-fill text-secondary"></i>
                   <span>Bài 1: Giới thiệu chung về khóa học</span>
                 </div>
-                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-2 text-primary"><a href="https://youtu.be/jfKfPfyJRdk">Học thử</a></div>
                 <div class="col-1">02:55</div>
               </div>
               <div class="row border-bottom py-2">
@@ -254,7 +257,7 @@ if (!empty($wishlist)) {
                   <i class="bi bi-play-circle-fill text-secondary"></i>
                   <span>Bài 1: Giới thiệu chung về khóa học</span>
                 </div>
-                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-2 text-primary"><a href="https://youtu.be/jfKfPfyJRdk">Học thử</a></div>
                 <div class="col-1">02:55</div>
               </div>
               <div class="row border-bottom py-2">
@@ -262,7 +265,7 @@ if (!empty($wishlist)) {
                   <i class="bi bi-play-circle-fill text-secondary"></i>
                   <span>Bài 1: Giới thiệu chung về khóa học</span>
                 </div>
-                <div class="col-2 text-primary">Học thử</div>
+                <div class="col-2 text-primary"><a href="https://youtu.be/jfKfPfyJRdk">Học thử</a></div>
                 <div class="col-1">02:55</div>
               </div>
             </div>
@@ -538,7 +541,6 @@ if (!empty($wishlist)) {
     $('.parent-section').click(function(e) {
       $(this).next().toggle(300);
     });
-    // });
   </script>
 
 
