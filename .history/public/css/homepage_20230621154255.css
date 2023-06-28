@@ -1,0 +1,159 @@
+@import url("pagesearch.css");
+@import url("pagesubject.css");
+.menu-left__child{
+    opacity: 0;
+    overflow: hidden;
+    top: 10%;
+    visibility: hidden;
+}
+
+li.menu-left:hover{
+    background-color: #eaeaea;
+}
+
+.menu-left__child li:hover{
+    background-color: #eaeaea;
+}
+
+li.menu-left:hover ul.menu-left__child{
+    opacity: 1;
+    visibility: visible;
+    top: 0 !important;
+    transition: all 0.2s ease-in-out;;
+}
+
+.cart-course__title{
+    font-size: 19px;
+    margin: 10px 0px 30px 0px;
+}
+
+.content-course{
+    margin: 5px 7px 0 7px;
+    display: inline-block;
+    width: 95%;
+}
+
+.namegv span {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.namegv .price-principal{
+    font-size: 14px;
+    text-decoration: line-through;
+    opacity: 0.6;
+    float: right;
+}
+
+.price-count{
+    width: 95%;
+    margin: 10px 7px;
+}
+
+.price-count .rate-combo{
+    float: left;
+}
+
+.price-count .price-discount{
+    float: right;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sale-price{
+    padding: 7px;
+    background-color: #f26c4f;
+}
+
+.sale-price p{
+    margin: 0px;
+    color: #fff;
+}
+
+.overlay-box{
+    z-index: 9;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(217, 217, 217, 0), rgba(43, 43, 43, 0.7));
+    padding: 0;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.box-txt-new{
+    bottom: 10px;
+    left: 11px;
+    text-align: center;
+    color: #fff;
+    z-index: 9;
+}
+
+.cl-ct-1{
+    background: #00aeef;
+}
+
+.cl-ct-2{
+    background: #3cb878;
+}
+.cl-ct-3{
+    background: #f26522;
+}
+.cl-ct-4{
+    background: #9e0b0f;
+}
+.cl-ct-5{
+    background: #2e3192;
+}
+.hidden-xs{
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 34px;
+    margin-right: 10px;
+    vertical-align: top;
+    float: left;
+}
+
+
+.box-txt-new .cl-ct-1.hidden-xs img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.box-txt-new .new-inner-box-ct{
+    float: left;
+}
+
+.box-txt-new .new-inner-box-ct p{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.box-txt-new .new-inner-box-ct span{
+    float: left;
+    font-size: 12px;
+}
+.card_course{
+    height: 316px;
+}
+
+.card_course .text-decoration-none.text-black.position-relative{
+    height: 100%;
+    display: block;
+}
+
+.card_course .text-decoration-none.text-black.position-relative .card.shadow.bg-body.rounded{
+    height: 100%;
+}
+
+.card-combo_big{
+    height: 290px; 
+    overflow: hidden;
+}
+
+.card-combo_big .position-relative{
+    height: 100%;
+    display: block;
+}

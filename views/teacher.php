@@ -1,5 +1,6 @@
 <?php
 session_start();
+$base_url = '';
 require_once '../database/database.php';
 require_once '../database/utility.php';
 $id = getGET('id');

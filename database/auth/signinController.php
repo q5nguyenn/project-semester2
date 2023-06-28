@@ -17,8 +17,8 @@ $_SESSION['email'] = $email;
 $sql = "SELECT * FROM `users` WHERE email = '$email'";
 $user = excuteResult($sql, true);
 if (empty($user)) {
-	header("Location: ../../views/auth/signin.php");
 	$_SESSION['error'] = '*Tài khoản không tồn tại.';
+	header("Location: ../../views/auth/signin.php");
 } else {
 	if (password_verify($password, $user['password'])) {
 		$_SESSION['user'] = $user;

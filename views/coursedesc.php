@@ -1,5 +1,6 @@
 <?php
 session_start();
+$base_url = '';
 include '../database/database.php';
 include '../database/utility.php';
 $id = getGET('id');
@@ -10,7 +11,7 @@ $id = getGET('id');
 // }
 
 $sql = "SELECT courses.*, users.name as teacher_name, users.thumbnail as teacher_thumbnail, departments.name as department_name,faculties.name as faculty_name
- FROM `courses`
+FROM `courses`
 JOIN users ON courses.teacher_id = users.id 
 JOIN departments ON courses.department_id = departments.id 
 JOIN faculties ON departments.faculty_id = faculties.id
@@ -37,6 +38,13 @@ if (!empty($courseInCart)) {
 $sql = "SELECT users.* FROM `bills` join users on users.id = bills.user_id
 ORDER BY bills.created_at LIMIT 5";
 $newUser = excuteResult($sql);
+
+$sql = "SELECT * FROM `wishlists` WHERE course_id ='" . $id . "' AND user_id ='" . $user['id'] . "'";
+$wishlist = excuteResult($sql, true);
+$like = false;
+if (!empty($wishlist)) {
+  $like = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +114,8 @@ $newUser = excuteResult($sql);
                 <span>8081 hoc vien</span>
               </div>
               <div class="d-flex align-items-center col rounded-circle bg-light flex-grow-0 main-like" style="width: 40px; height: 40px">
-                <i class="bi bi-heart-fill text-muted like_cart"></i>
+                <a href="../database/wishlist/<?= $like ? 'delete' : 'insert' ?>.php?id=<?= $id ?>
+                "><i class="bi bi-heart-fill <?= $like ? 'text-danger' : 'text-muted' ?> like_cart"></i></a>
               </div>
             </div>
           </div>
@@ -359,7 +368,6 @@ $newUser = excuteResult($sql);
                 <i class="bi bi-heart text-info" id="like_cart_03" style="cursor: pointer"></i>
               </div>
             </div>
-
             <button class="w-100 btn btn-outline-info p-2 fs-6">
               Xem thêm
             </button>
@@ -447,7 +455,7 @@ $newUser = excuteResult($sql);
                 <a href="auth/signup.php"><button class="w-100 p-3 fw-bold my-2 btn btn-danger">
                     ĐĂNG KÍ NGAY
                   </button></a>
-                <a href="../database/cartController.php?id=<?= $id ?>" class="w-100 p-3 fw-bold my-1 btn btn-success 
+                <a href="../database/cart/insert.php?id=<?= $id ?>" class="w-100 p-3 fw-bold my-1 btn btn-success 
                 <?= (!$allowAddCart) ? 'disabled' : '' ?>">
                   <i class=" bi bi-cart-plus"></i> Thêm vào giỏ hàng
                 </a>
@@ -518,23 +526,22 @@ $newUser = excuteResult($sql);
   <script>
     var element = document.getElementsByClassName('like_cart');
     $('.main-like').click(function(e) {
-      e.preventDefault();
       $(this).find('i').toggleClass('text-muted');
       $(this).find('i').toggleClass('text-danger');
     });
     $('.like').click(function(e) {
-      e.preventDefault();
       $(this).toggleClass('border-info');
       $(this).toggleClass('border-danger');
       $(this).find('i').toggleClass('text-info');
       $(this).find('i').toggleClass('text-danger');
     });
     $('.parent-section').click(function(e) {
-      e.preventDefault();
       $(this).next().toggle(300);
     });
     // });
   </script>
+
+
 </body>
 
 

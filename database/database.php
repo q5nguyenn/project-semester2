@@ -20,6 +20,7 @@ function excute($sql)
 {
 	$conn = openConnection();
 	$conn->query($sql);
+	return $conn->insert_id;
 	closeConnection($conn);
 }
 
