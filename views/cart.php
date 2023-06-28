@@ -55,7 +55,7 @@ $count = count($coures);
       <div class="row">
         <div class="col-lg-12 bg-primary mt-5" style="height: 100px;">
         <div class="start-classes classes-item active fs-2 text-white">
-            <p class="text-center mt-3">Gio hang (<?=$count?> khoa hoc)</p>
+            <p class="text-center mt-3">Giỏ hàng (<?=$count?> khoá học)</p>
         </div>
       </div>
       </div>

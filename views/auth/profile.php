@@ -20,15 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone_number = getPOST('phone');
     $address = getPOST('address');
     $birth_day = getPOST('birthday');
-   
 
     $sql = "UPDATE users SET name='$name', email='$email', phone_number='$phone_number', address='$address', birth_day='$birth_day' WHERE id = $user_id";
-//    execute($sql);
     excuteResult($sql,true);
 
-    // Chuyển hướng về trang xem thông tin người dùng sau khi cập nhật thành công
     header('Location: /profile.php');
-
     exit();
 }
 ?>
@@ -55,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h2 class="text-center text-white pt-5">STAR CLASSES</h2>
               <div class="col-md-4 bg-light p-3 py-3 my-3 rounded-3" >
                   <!--Form-->
-                  <form action="../../database/auth/updateProfile.php" method="post">
+                  <form action="../../database/auth/updateProfile.php" method="post" enctype="multipart/form-data">
                   <div class="position-relative">
                       <div class="position-absolute top-0 start-0" style="top: -15px; transform: translate(-50%, -50%);">
                           <a href="../../database/auth/deleteProfile.php" onclick="deleteProfile()"><i class="bi bi-trash text-danger fs-5"></i></a>
@@ -64,19 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                           <a href="signin.php"><i class="bi bi-box-arrow-in-right text-dark fs-4"></i></a>
                       </div>
                       <!-- Avatar -->
-                      <div class="d-flex justify-content-center align-items-center" style="width: 100px; height: 100px; border-radius: 50%;margin-left: 42%;">
-                          <input type="hidden" name="thumbnail">
-                          <img  id="avatar" src="../../public<?=$user['thumbnail']?>" alt="Avatar"  style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                          <i id="avatar-edit" class="bi bi-camera fs-4 position-absolute bg-white rounded-5 mt-5" style="
-    border-radius: 100%;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    cursor: pointer;
-"></i>
-                      </div>
+
+
                   </div>
 
                   <div class="form-group">
@@ -128,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   </div>
                   <!---->
                   <div class="d-flex justify-content-between mt-3 mb-4">
-                    <a href="#"><button type="submit" class="btn btn-danger" >CẬP NHẬT</button></a>
+                    <a href="#"><input  type="submit" value="CẬP NHẬT"  class="btn btn-danger" ></a>
                       <div class="mx-2"></div>
                       <a href="../index.php" class="btn btn-primary" >TRUY CẬP</a>
                   </div>
@@ -143,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <footer></footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../../public/js/header.js"></script>
-<script src="../../public/js/avatar.js"></script>
+<!--<script src="../../public/js/avatar.js"></script>-->
 <script src="../../public/js/deleteProfile.js"></script>
 
 </body>
