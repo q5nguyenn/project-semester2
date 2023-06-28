@@ -1,11 +1,12 @@
 <?php
 session_start();
 $base_url = '../';
-require_once('../../database/database.php');
+require_once($base_url . '../database/database.php');
+require_once($base_url . '../database/utility.php');
 if (checkLogin()) {
 	$user = $_SESSION['user'];
 } else {
-	header("Location: ../auth/signin.php");
+	header("Location: " . asset('views/auth/sigin.php'));
 }
 $courses = excuteResult('SELECT courses.* FROM courses
 JOIN carts ON courses.id = carts.course_id
@@ -32,7 +33,7 @@ foreach ($courses as $course) {
 <body>
 	<!-- Header Start -->
 	<?php
-	require_once '' . $base_url . 'layouts/header.php';
+	require_once '../../views/layouts/header.php';
 	?>
 	<!-- Header End -->
 
@@ -129,7 +130,7 @@ foreach ($courses as $course) {
 				<div class="text-center my-2">Sau đó bấn vào nút bên dưới để vào học ngay
 				</div>
 				<div class="text-center">
-					<button class="btn btn-primary">TÔI ĐÃ CHUYỂN KHOẢN</button>
+					<a class="btn btn-primary" href="<?= asset('database/checkoutController.php') ?>">TÔI ĐÃ CHUYỂN KHOẢN</a>
 				</div>
 			</div>
 		</div>
@@ -156,12 +157,12 @@ foreach ($courses as $course) {
 	</main>
 	<!-- Footer Start -->
 	<?php
-	require_once '' . $base_url . 'layouts/footer.php'
+	require_once '../../views/layouts/footer.php';
 	?>
 	<!-- Footer End -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="<?= $base_url ?>../public/js/header.js"></script>
+	<script src="../../public/js/header.js"></script>
 	<script>
 		$(document).ready(function() {
 			var timer2 = "15:00";

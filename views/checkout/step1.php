@@ -1,11 +1,11 @@
 <?php
 session_start();
 $base_url = '../';
-require_once('../../database/database.php');
+require_once($base_url . '../database/database.php');
 if (checkLogin()) {
 	$user = $_SESSION['user'];
 } else {
-	header("Location: ../auth/signin.php");
+	header("Location: " . asset('views/auth/sigin.php'));
 }
 $courses = excuteResult('SELECT courses.* FROM courses
 JOIN carts ON courses.id = carts.course_id
@@ -32,7 +32,7 @@ foreach ($courses as $course) {
 <body>
 	<!-- Header Start -->
 	<?php
-	require_once '' . $base_url . 'layouts/header.php';
+	require_once '../../views/layouts/header.php';
 	?>
 	<!-- Header End -->
 	<main class="min-vh-100 bg-light">
@@ -100,7 +100,7 @@ foreach ($courses as $course) {
 					<div class="bg-white shadow-sm p-3 rounded">
 						<div class="d-flex justify-content-between border-bottom">
 							<div>Đơn hàng</div>
-							<a class="btn" href="../cart.php"><i class="bi bi-pencil-square"></i> Sửa</a>
+							<a class="btn" href="<?= asset('views/cart.php') ?>"><i class="bi bi-pencil-square"></i> Sửa</a>
 						</div>
 						<?php
 						foreach ($courses as $course) {
@@ -127,7 +127,7 @@ foreach ($courses as $course) {
 	</main>
 	<!-- Footer Start -->
 	<?php
-	require_once '' . $base_url . 'layouts/footer.php'
+	require_once '../../views/layouts/footer.php.php';
 	?>
 	<!-- Footer End -->
 
