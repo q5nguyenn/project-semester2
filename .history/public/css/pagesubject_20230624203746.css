@@ -1,0 +1,146 @@
+.d-flex.list-unstyled.nav-tab .text-decoration-none.active{
+    border: 1px solid #dddd;
+}
+
+.row .list-unstyled.d-flex.flex-wrap .title-tag{
+    padding: 12px; 
+    width: 239px; 
+    margin: 5px 10px; 
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+}
+
+.d-flex.align-items-center.u-hot-cate{
+    padding: 9px 12px;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.d-flex.align-items-center.u-hot-cate span{
+    margin: 4px 6px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.d-flex.align-items-center.u-hot-cate .list-unstyled li{
+    float: left;
+    margin: 0px 10px;
+}
+
+.d-flex.align-items-center.u-hot-cate .list-unstyled li a{
+    color: #777;
+    font-size: 14px;
+}
+
+
+.option-view .option-view__filter{
+    display: none;
+    border: none;
+    background-color: unset;
+}
+
+.view-option{
+    padding: 6px 10px;
+}
+
+.view-option.active{
+    background-color: #F26C50;
+    color: white;
+}
+
+.option-view button{
+    float: right
+}
+
+.row.list-filter-course .star{
+    margin: 0 5px;
+}
+
+.row.list-filter-course .star .bi.bi-star-fill{
+    color: #eb8a2f;
+}
+
+.checkbox-inline .time-filter{
+    width: 20px;
+    height: 20px;
+    margin: -2px 15px 15px 0px;
+}
+
+.detail-course .detain-course__content{
+    width: 80%;
+}
+
+.detail-course{
+    border-bottom: 1px solid #d1d7dc;
+    padding: 10px;
+    gap: 10px
+}
+
+.detail-course .img-responsive{
+    width: 32% !important;
+}
+
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.detail-course .detain-course__content .total-times{
+    padding-top: 10px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.star-rate .bi.bi-star-fill{
+    color: #eb8a2f;
+}
+
+.pagination-course{
+    text-align: center;
+    width: 100%;
+}
+
+.pagination{
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.pagination > li {
+    display: inline;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    border: 1px solid #dddddd;
+}
+
+.pagination-course a {
+    border-radius: 25px !important;
+    font-weight: 600;
+}
+
+.pagination-course span {
+    border-radius: 25px !important;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #428bca;
+    border-color: #428bca;
+    cursor: default;
+}
+
+a.d-flex.text-decoration-none.text-black.a-listcourse{
+    width: 100%;
+}
+.detail-course.d-flex.lis
