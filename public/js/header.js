@@ -8,6 +8,19 @@ $(document).ready(function () {
     $('header').css('height', $('#nav-bar').height());
   });
 
+<<<<<<< HEAD
+  $("#category-menu div").click(function (e) {
+    e.preventDefault();
+    let id = $(this).data("id");
+    $(".department-item").hide(300);
+    $(`[data-parent=${id}]`).show(300);
+  });
+
+
+  $("header").css("height", $("#nav-bar").height());
+
+});
+=======
   // Debounce
   function debounce(func, wait, immediate) {
     var timeout;
@@ -24,3 +37,4 @@ $(document).ready(function () {
       if (callNow) func.apply(context, args);
     };
   }
+>>>>>>> 78fb69b1ea3b12b0c8c69fe11c34f1c04666abec

@@ -1,20 +1,21 @@
 <?php
-	include("../database/config.php");
-	include("database/utility.php");
-	$getKeyWord = $_GET['keyword'];
-	
-	$searchProduct = "SELECT courses.*, departments.name as departments_name, users.name as users_name, users.thumbnail as users_thumbnail 
-	FROM `courses` JOIN departments ON courses.department_id = departments.id  JOIN users ON courses.teacher_id = users.id WHERE  courses.name LIKE '%".$keyword."%' ORDER BY teacher_id DESC ";
-	$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
+
+// include("../database/config.php");
+// include("/database/utility.php");
+$getKeyWord = $_GET['keyword'];
+
+$searchProduct = "SELECT courses.*, departments.name as departments_name, users.name as users_name, users.thumbnail as users_thumbnail 
+	FROM `courses` JOIN departments ON courses.department_id = departments.id  JOIN users ON courses.teacher_id = users.id WHERE  courses.name LIKE '%" . $keyword . "%' ORDER BY teacher_id DESC ";
+$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
+$array_searchProduct = mysqli_fetch_array($query_searchProduct);
+$countArraySearchProduct = count(array_filter($array_searchProduct));
+if ($query_searchProduct) {
+	$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 	$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 	$countArraySearchProduct = count(array_filter($array_searchProduct));
-	if ($query_searchProduct) {
-		$array_searchProduct = mysqli_fetch_array($query_searchProduct);
-		$array_searchProduct = mysqli_fetch_array($query_searchProduct);
+	if ($array_searchProduct) {
 		$countArraySearchProduct = count(array_filter($array_searchProduct));
-		if($array_searchProduct) {
-			$countArraySearchProduct = count(array_filter($array_searchProduct));
-			$footer = '<div class="container-fluid bg-secondary text-white">
+		$footer = '<div class="container-fluid bg-secondary text-white">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -98,73 +99,73 @@
 				</div>
 			</div>
 		</div>';
+		$noti = '';
 		if (isset($_GET['keyword']) && $_GET['acset'] == "studymore") {
-			
+
 			$keyword = $_GET['keyword'];
-			
+
 			$searchProduct = "SELECT courses.*, AVG(reviews.rate) as star, COUNT(bill_course.course_id) as bill_course, users.name as users_name, users.thumbnail as users_thumbnail
 				FROM courses
 				JOIN users ON courses.teacher_id = users.id 
 				LEFT JOIN reviews ON courses.id = reviews.course_id
 				JOIN bill_course ON courses.id = bill_course.course_id
-				WHERE courses.name LIKE '%".$keyword."%'
+				WHERE courses.name LIKE '%" . $keyword . "%'
 				GROUP BY courses.id
 				HAVING COUNT(bill_course.course_id) >= 1
 				ORDER BY courses.id DESC";
 			$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
 			$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 			$countArraySearchProduct = count(array_filter($array_searchProduct));
-
-		}elseif (isset($_GET['keyword']) && $_GET['acset'] == "votehight") {
+		} elseif (isset($_GET['keyword']) && $_GET['acset'] == "votehight") {
 			$keyword = $_GET['keyword'];
 			$searchProduct = "SELECT courses.*, AVG(reviews.rate) as star, users.name as users_name, users.thumbnail as users_thumbnail
 				FROM courses
 				JOIN users ON courses.teacher_id = users.id 
 				LEFT JOIN reviews ON courses.id = reviews.course_id
-				WHERE courses.name LIKE '%".$keyword."%'
+				WHERE courses.name LIKE '%" . $keyword . "%'
 				GROUP BY courses.id
 				HAVING AVG(rate) >=4
 				ORDER BY  id DESC";
 			$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
 			$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 			$countArraySearchProduct = count(array_filter($array_searchProduct));
-		}elseif (isset($_GET['keyword']) && $_GET['acset'] == "newstudy") {
+		} elseif (isset($_GET['keyword']) && $_GET['acset'] == "newstudy") {
 			$searchProduct = "SELECT courses.*, AVG(reviews.rate) as star, users.name as users_name, users.thumbnail as users_thumbnail
 				FROM courses
 				JOIN users ON courses.teacher_id = users.id 
 				LEFT JOIN reviews ON courses.id = reviews.course_id
-				WHERE courses.name LIKE '%".$keyword."%'
+				WHERE courses.name LIKE '%" . $keyword . "%'
 				GROUP BY courses.id
 				ORDER BY created_at ASC";
 
 			$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
 			$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 			$countArraySearchProduct = count(array_filter($array_searchProduct));
-		}elseif (isset($_GET['keyword']) && $_GET['acset'] == "pricelowtohight") {
+		} elseif (isset($_GET['keyword']) && $_GET['acset'] == "pricelowtohight") {
 			$searchProduct = "SELECT courses.*, AVG(reviews.rate) as star, COUNT(bill_course.course_id) as bill_course, users.name as users_name, users.thumbnail as users_thumbnail
 				FROM courses
 				JOIN users ON courses.teacher_id = users.id 
 				LEFT JOIN reviews ON courses.id = reviews.course_id
 				JOIN bill_course ON courses.id = bill_course.course_id
-				WHERE courses.name LIKE '%".$keyword."%'
+				WHERE courses.name LIKE '%" . $keyword . "%'
 				GROUP BY courses.id
 				ORDER BY discount ASC";
 			$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
 			$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 			$countArraySearchProduct = count(array_filter($array_searchProduct));
-		}elseif (isset($_GET['keyword']) && $_GET['acset'] == "pricehightolow") {
+		} elseif (isset($_GET['keyword']) && $_GET['acset'] == "pricehightolow") {
 			$searchProduct = "SELECT courses.*, AVG(reviews.rate) as star, COUNT(bill_course.course_id) as bill_course, users.name as users_name, users.thumbnail as users_thumbnail
 				FROM courses
 				JOIN users ON courses.teacher_id = users.id 
 				LEFT JOIN reviews ON courses.id = reviews.course_id
 				JOIN bill_course ON courses.id = bill_course.course_id
-				WHERE courses.name LIKE '%".$keyword."%'
+				WHERE courses.name LIKE '%" . $keyword . "%'
 				GROUP BY courses.id
 				ORDER BY discount DESC";
 			$query_searchProduct = mysqli_query(openConnection(), $searchProduct);
 			$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 			$countArraySearchProduct = count(array_filter($array_searchProduct));
-		}elseif ($_GET['acset'] == "studymore") {
+		} elseif ($_GET['acset'] == "studymore") {
 			$keyword = $_GET['keyword'];
 			$searchProduct = "SELECT courses.*, AVG(reviews.rate) as star, users.name as users_name, users.thumbnail as users_thumbnail
 				FROM courses
@@ -189,9 +190,9 @@
 			$array_searchProduct = mysqli_fetch_array($query_searchProduct);
 			$countArraySearchProduct = count(array_filter($array_searchProduct));
 		}
-		} else {
-			$noti = "<p>KHÔNG TÌM THẤY KẾT QUẢ NÀO</p>";
-			$footer = '<div class="container-fluid bg-secondary text-white">
+	} else {
+		$noti = "<p>KHÔNG TÌM THẤY KẾT QUẢ NÀO</p>";
+		$footer = '<div class="container-fluid bg-secondary text-white">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -275,10 +276,10 @@
 				</div>
 			</div>
 		</div>';
-		}
-	} else {
-		$noti = "Lỗi truy vấn: " . mysqli_error(openConnection());
 	}
+} else {
+	$noti = "Lỗi truy vấn: " . mysqli_error(openConnection());
+}
 ?>
 
 
@@ -319,7 +320,7 @@
 					</div>
 				</div>
 
-				
+
 				<!-- select filter source -->
 				<section>
 					<div class="row">
@@ -327,13 +328,13 @@
 							<div class="d-flex align-items-center u-hot-cate shadow-sm p-3 mb-5 bg-body rounded" style="background-color: #fff;">
 								<i class="bi bi-arrow-down-up"></i><span class="fw-bold" style="font-size: 15px; margin: 4px 6px;">Sắp xếp</span>
 
-									<ul class="d-flex list-unstyled m-0">
-										<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=studymore" class="text-decoration-none">Học nhiều nhất</a></li>
-										<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=votehight" class="text-decoration-none">Đánh giá cao</a></li>
-										<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=newstudy" class="text-decoration-none">Mới nhất</a></li>
-										<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=pricelowtohight" class="text-decoration-none">Giá thấp đến giá cao</a></li>
-										<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=pricehightolow" class="text-decoration-none">Giá cao đến giá thấp</a></li>
-									</ul>
+								<ul class="d-flex list-unstyled m-0">
+									<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=studymore" class="text-decoration-none">Học nhiều nhất</a></li>
+									<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=votehight" class="text-decoration-none">Đánh giá cao</a></li>
+									<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=newstudy" class="text-decoration-none">Mới nhất</a></li>
+									<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=pricelowtohight" class="text-decoration-none">Giá thấp đến giá cao</a></li>
+									<li><a href="searchController.php?keyword=<?php echo $keyword ?>&acset=pricehightolow" class="text-decoration-none">Giá cao đến giá thấp</a></li>
+								</ul>
 
 							</div>
 						</div>
@@ -348,45 +349,45 @@
 
 				<div class="row pt-3 pb-5">
 
-				<?php 
+					<?php
 					$discount = 0;
 					while ($listSearchProduct = mysqli_fetch_array($query_searchProduct)) {
-						$discount = (($listSearchProduct ['price'] - $listSearchProduct ['discount']) / $listSearchProduct ['price']) * 100;
+						$discount = (($listSearchProduct['price'] - $listSearchProduct['discount']) / $listSearchProduct['price']) * 100;
 						$round_discount = round($discount);
-				?>
+					?>
 						<div class="col-lg-3 mb-4">
-						<a class="text-decoration-none text-black position-relative" href="#">
-							<div class="card shadow bg-body rounded">
-								<img src="../public<?php echo $listSearchProduct['thumbnail'] ?>" style="width: 100%;" class="card-img-top" alt="...">
+							<a class="text-decoration-none text-black position-relative" href="#">
+								<div class="card shadow bg-body rounded">
+									<img src="../public<?php echo $listSearchProduct['thumbnail'] ?>" style="width: 100%;" class="card-img-top" alt="...">
 
-								<div class="content-course">
-									<h3 class="cart-course__title">
-										<p><?php echo $listSearchProduct['name'] ?></p>
-									</h3>
-									<div class="namegv">
-										<span style="float: left;"><?php echo $listSearchProduct['users_name']?></span>
-										<span class="price-principal"><?php echo $listSearchProduct['price'] ?></span>
+									<div class="content-course">
+										<h3 class="cart-course__title">
+											<p><?php echo $listSearchProduct['name'] ?></p>
+										</h3>
+										<div class="namegv">
+											<span style="float: left;"><?php echo $listSearchProduct['users_name'] ?></span>
+											<span class="price-principal"><?php echo $listSearchProduct['price'] ?></span>
+										</div>
 									</div>
-								</div>
-								<div class="price-count" style="clear: both;">
-									<div class="rate-combo">
-									<?php echo showStarRate($listSearchProduct['star']) ?>
+									<div class="price-count" style="clear: both;">
+										<div class="rate-combo">
+											<?php echo showStarRate($listSearchProduct['star']) ?>
+										</div>
+										<span class="price-discount"><?php echo $listSearchProduct['discount'] ?></span>
 									</div>
-									<span class="price-discount"><?php echo $listSearchProduct['discount'] ?></span>
+
+
 								</div>
+								<div class="position-absolute top-0 start-0 text-center sale-price rounded">
+									<p>-<?php echo $round_discount . '%' ?></p>
+								</div>
+							</a>
 
-
-							</div>
-							<div class="position-absolute top-0 start-0 text-center sale-price rounded">
-								<p>-<?php echo $round_discount .'%' ?></p>
-							</div>
-						</a>
-
-					</div>
-				<?php 
+						</div>
+					<?php
 					}
-				?>
-				
+					?>
+
 				</div>
 
 			</div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once 'database.php';
-require_once 'utility.php';
+require_once '../database.php';
+require_once '../utility.php';
 $id = getGET('id');
 $user = checkLogin();
 if (!empty($user)) {
@@ -9,7 +9,7 @@ if (!empty($user)) {
     // echo $sql;
     // die();
     excute($sql);
-    header("Location: ../views/coursedesc.php?id=" . $id);
+    header("Location: ../../views/coursedesc.php?id=" . $id);
 } else {
-    header("Location: ../views/auth/signin.php");
+    header("Location: ../../views/auth/signin.php");
 }
