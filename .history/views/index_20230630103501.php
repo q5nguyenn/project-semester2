@@ -31,7 +31,6 @@ GROUP BY id LIMIT 5";
 $query_starup = mysqli_query(openConnection(), $select_starup);
 $select_faculties = "SELECT * FROM faculties ORDER BY id ASC LIMIT 12";
 $query_faculties = mysqli_query(openConnection(), $select_faculties);
-
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +84,7 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 			<div class="row pt-5">
 				<div class="col-lg-12 d-flex justify-content-between">
 					<h4 class="float-left text-uppercase fw-bold">Top bán chạy</h4>
-					<a href="../database/searchController.php?keyword=&acset=studymore" class="float-right text-decoration-none text-black">Xem thêm</a>
+					<a href="../database/searchController.php?keyword=''acset=studymore" class="float-right text-decoration-none text-black">Xem thêm</a>
 				</div>
 			</div>
 
@@ -151,7 +150,7 @@ $query_faculties = mysqli_query(openConnection(), $select_faculties);
 			<div class="row pt-5">
 				<div class="col-lg-12 d-flex justify-content-between">
 					<h4 class="float-left text-uppercase fw-bold">Siêu ưu đãi ngày hôm nay</h4>
-					<a href="../database/searchController.php?keyword=&acset=sale" class="float-right text-decoration-none text-black">Xem thêm</a>
+					<a href="../database/searchController.php?acset=sale" class="float-right text-decoration-none text-black">Xem thêm</a>
 				</div>
 			</div>
 

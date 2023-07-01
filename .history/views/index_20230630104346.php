@@ -32,6 +32,7 @@ $query_starup = mysqli_query(openConnection(), $select_starup);
 $select_faculties = "SELECT * FROM faculties ORDER BY id ASC LIMIT 12";
 $query_faculties = mysqli_query(openConnection(), $select_faculties);
 
+$select_faculti ="SELECT "
 ?>
 
 <!DOCTYPE html>
